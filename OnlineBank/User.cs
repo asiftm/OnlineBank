@@ -19,7 +19,7 @@ namespace OnlineBank
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Password { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
 
@@ -34,7 +34,7 @@ namespace OnlineBank
             ID = _id;
         }
 
-        public User (string _firstName,string _lastName,string _password,DateTime _dateOfBirth,string _email,string _address)
+        public User (string _firstName,string _lastName,string _password,string _dateOfBirth,string _email,string _address)
         {
             FirstName = _firstName;
             LastName = _lastName;
@@ -44,7 +44,7 @@ namespace OnlineBank
             Address = _address;
         }
 
-        public User(int _id,string _firstName, string _lastName, string _password, DateTime _dateOfBirth, string _email, string _address)
+        public User(int _id,string _firstName, string _lastName, string _password, string _dateOfBirth, string _email, string _address)
         {
             ID = _id;
             FirstName = _firstName;
@@ -109,9 +109,7 @@ namespace OnlineBank
                 user.FirstName = result[1].ToString();
                 user.LastName = result[2].ToString();
                 user.Password = result[3].ToString();
-                Console.WriteLine(result[4].ToString());
-                string a = (result[4].ToString()).Split(' ')[0];
-                user.DateOfBirth = DateTime.ParseExact(a, "M/d/yyyy", CultureInfo.InvariantCulture);
+                user.DateOfBirth = result[4].ToString().Split(' ')[0];
                 user.Email = result[5].ToString();
                 user.Address = result[6].ToString();
             }
@@ -121,12 +119,28 @@ namespace OnlineBank
         public bool UpdateUser(User user)
         {
             bool temp = false;
-            string query = $"UPDATE `user` SET `FirstName` = '{user.FirstName}', `LastName` = '{user.LastName}', `Password` = '{user.Password}', `DateOfBirth` = '{user.DateOfBirth.ToString("yyyy-MM-dd")}', `Email` = '{user.Email}', `Address` = '{user.Address}' WHERE `user`.`ID` = {user.ID}";
+            string query = $"UPDATE `user` SET `FirstName` = '{user.FirstName}', `LastName` = '{user.LastName}', `Password` = '{user.Password}', `DateOfBirth` = '{user.DateOfBirth}', `Email` = '{user.Email}', `Address` = '{user.Address}' WHERE `user`.`ID` = {user.ID}";
             Console.WriteLine(query);
             if (data.NonSelectQuery(query) == 1)
             {
                 temp = true;
             }
+            return temp;
+        }
+
+        public bool DeleteUser(User user)
+        {
+            bool temp = false;
+            String query = $"DELETE FROM user WHERE user.FirstName='{user.FirstName}'";
+            if (data.NonSelectQuery(query) == 1)
+            {
+                temp = true;
+                MessageBox.Show("Account deleted successful!");
+                AccountDelete accountDelete = new AccountDelete();
+                accountDelete.Hide();
+                LogInPage logInPage = new LogInPage();
+                logInPage.Show();
+            };
             return temp;
         }
     }

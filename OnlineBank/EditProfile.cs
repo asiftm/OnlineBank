@@ -35,19 +35,17 @@ namespace OnlineBank
                     {
                         string tempEmail = user.Email;
                         user.Email = textBox4.Text;
-                        Console.WriteLine($"01    {user.Email}");
                         if (user.PreviousAccountCheck(user) == false || user.Email == tempEmail)
                         {
                             user.FirstName = textBox1.Text;
                             user.LastName = textBox2.Text;
-                            user.DateOfBirth = DateTime.ParseExact(textBox3.Text, "yyyy-mm-dd", null);
-                            user.Password = textBox5.Text;
+                            user.DateOfBirth = textBox3.Text;
+                            user.Address = textBox5.Text;
                             user.Password = textBox6.Text;
 
                             if (user.UpdateUser(user))
                             {
                                 LogInPage.uEmail = user.Email;
-                                Console.WriteLine($"02    {user.Email}");
                                 MessageBox.Show("Update Complete");
                                 UserHomePage userHomePage = new UserHomePage();
                                 userHomePage.Show();
@@ -85,7 +83,7 @@ namespace OnlineBank
             user = user.GetUser(LogInPage.uEmail);
             textBox1.Text = user.FirstName;
             textBox2.Text = user.LastName;
-            textBox3.Text = user.DateOfBirth.ToString("yyyy-MM-dd");
+            textBox3.Text = user.DateOfBirth;
             textBox4.Text = user.Email;
             textBox5.Text = user.Address;
             textBox6.Text = user.Password;
@@ -128,7 +126,7 @@ namespace OnlineBank
         {
             textBox1.Text = user.FirstName;
             textBox2.Text = user.LastName;
-            textBox3.Text = user.DateOfBirth.ToString("yyyy-MM-dd");
+            textBox3.Text = user.DateOfBirth;
             textBox4.Text = user.Email;
             textBox5.Text = user.Address;
             textBox6.Text = user.Password;
@@ -139,6 +137,14 @@ namespace OnlineBank
             UserHomePage userHomePage = new UserHomePage();
             userHomePage.Show();
             this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AccountDelete account = new AccountDelete();
+            account.Show();
+            this.Hide();
+
         }
     }
 }

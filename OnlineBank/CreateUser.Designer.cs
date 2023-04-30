@@ -174,6 +174,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(218, 20);
             this.textBox5.TabIndex = 13;
+            this.textBox5.UseSystemPasswordChar = true;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // textBox6
@@ -190,6 +191,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(218, 20);
             this.textBox7.TabIndex = 15;
+            this.textBox7.UseSystemPasswordChar = true;
             this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // button1

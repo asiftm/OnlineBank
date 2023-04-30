@@ -27,40 +27,48 @@ namespace OnlineBank
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*
-            if (textBox1.Text!=string.Empty && textBox2.Text!=string.Empty && textBox3.Text!=string.Empty && textBox3.Text == user.Password)
+            
+            if (textBox1.Text!=string.Empty && textBox2.Text!=string.Empty && textBox3.Text!=string.Empty)
             {
-                string rNum = textBox1.Text;
-                string iBal = textBox2.Text;
-                if(account.CreateAccount(user, rNum , iBal))
+                if(textBox3.Text == user.Password)
                 {
-                    UserHomePage userHomePage = new UserHomePage();
-                    userHomePage.Show();
-                    this.Hide();
-                    MessageBox.Show("New account created!");
+                    string rNum = textBox1.Text;
+                    string iBal = textBox2.Text;
+                    if (account.CreateAccount(user, rNum, iBal))
+                    {
+                        UserHomePage userHomePage = new UserHomePage();
+                        userHomePage.Show();
+                        this.Hide();
+                        MessageBox.Show("New account created!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something went wrong!\nTry again!");
+                    }
                 }
+                else
                 {
-                    MessageBox.Show("Something went wrong!\nTry again!");
+                    MessageBox.Show("Wrong password");
                 }
-                
-            }*/
+            }
+            else
+            {
+                MessageBox.Show("Fill all fields");
+            }
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            //Console.WriteLine("ok");
-            //user = user.GetUser(LogInPage.uEmail);
-            //bool temp = false;
-            //int rNum = 0;
-            //while (temp == false)
-            //{
-            //    Random random = new Random(user.ID);
-            //    rNum = random.Next(1000000, 9999999);
-            //    temp = account.PreviousAccountNumberCheck(rNum);
-            //}
-            //textBox1.Text = rNum.ToString();
-            //textBox2.Text = "2000.00";
-            //Console.WriteLine($"rNum    {rNum}");
+            user = user.GetUser(LogInPage.uEmail);
+            int randomNumber = account.GenerateAccountNumber(user);
+            textBox1.Text = randomNumber.ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            UserHomePage userHomePage = new UserHomePage();
+            userHomePage.Show();
+            this.Hide();
         }
     }
 }

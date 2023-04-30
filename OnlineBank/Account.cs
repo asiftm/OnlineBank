@@ -3,6 +3,7 @@ using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,21 +32,18 @@ namespace OnlineBank
         public bool PreviousAccountNumberCheck(int rNum)
         {
             bool temp = false;
-            string query = $"select * from accounts where accountnumber='{rNum}'";
+            string query = $"select * from accounts where accountnumber='BE{rNum}'";
             MySqlDataReader result = data.SelectQuery(query);
-            while (result.Read())
+            if (result.HasRows==false)
             {
-                if (Convert.ToInt32(result[0].ToString()) >= 1)
-                {
-                    temp = true;
-                }
+                temp = true;
             }
             return temp;
         }
         public bool CreateAccount(User user, string rNum, string iBal)
         {
             bool temp = false;
-            string query = $"ALUES('INSERT INTO `accounts` (`AccountNumber`, `UserID`, `Balance`) VALUES ('{rNum}', '{user.ID}', '{iBal}');";
+            string query = $"INSERT INTO `accounts` (`AccountNumber`, `UserID`, `Balance`) VALUES ('BE{rNum}', '{user.ID}', '{iBal}');";
             if (data.NonSelectQuery(query) == 1)
             {
                 temp = true;
@@ -53,10 +51,24 @@ namespace OnlineBank
             return temp;
         }
         
-        public void GetAccountNumber(User user)
+        public int GenerateAccountNumber(User user)
         {
-
-
+            bool temp = false;
+            int rNum = 0;
+            int loop = 1;
+            while (temp == false)
+            {
+                Random random = new Random(user.ID);
+                for (int i = 0; i < loop; i++)
+                {
+                    rNum = random.Next(1000000, 9999999);
+                }
+                temp = PreviousAccountNumberCheck(rNum);
+                loop++;
+            }
+            return rNum;
         }
+        
+        
     }
 }

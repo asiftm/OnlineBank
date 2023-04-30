@@ -38,7 +38,7 @@ namespace OnlineBank
                     user.FirstName = textBox1.Text;
                     user.LastName = textBox2.Text;
                     user.Password = textBox5.Text;
-                    user.DateOfBirth = DateTime.ParseExact(textBox3.Text,"yyyy-mm-dd",null);
+                    user.DateOfBirth = textBox3.Text;
                     user.Email = textBox4.Text;
                     user.Address = textBox6.Text;
 
@@ -47,6 +47,7 @@ namespace OnlineBank
                         if (user.CreateUser(user))
                         {
                             MessageBox.Show("User Created");
+                            this.Hide();
                         }
                         else
                         {
