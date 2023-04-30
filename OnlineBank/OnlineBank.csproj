@@ -102,6 +102,12 @@
     <Compile Include="AccountDelete.Designer.cs">
       <DependentUpon>AccountDelete.cs</DependentUpon>
     </Compile>
+    <Compile Include="SendMoney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendMoney.Designer.cs">
+      <DependentUpon>SendMoney.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AccountDelete.resx">
       <DependentUpon>AccountDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SendMoney.resx">
+      <DependentUpon>SendMoney.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

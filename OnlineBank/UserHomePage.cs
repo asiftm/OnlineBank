@@ -58,5 +58,12 @@ namespace OnlineBank
             addAccount.Show();
             this.Hide();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SendMoney sendMoney = new SendMoney();
+            sendMoney.Show();
+            this.Hide();
+        }
     }
 }
