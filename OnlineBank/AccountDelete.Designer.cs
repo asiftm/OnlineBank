@@ -125,6 +125,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Name = "AccountDelete";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Account Delete";
             this.Load += new System.EventHandler(this.AccountDelete_Load);
             this.ResumeLayout(false);

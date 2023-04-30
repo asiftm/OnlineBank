@@ -12,6 +12,9 @@ namespace OnlineBank
 {
     public partial class SendMoney : Form
     {
+        User user = new User();
+        Account account = new Account();
+
         public SendMoney()
         {
             InitializeComponent();
@@ -30,6 +33,22 @@ namespace OnlineBank
         }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
+        }
+
+        private void SendMoney_Load(object sender, EventArgs e)
+        {
+            user = user.GetUser(LogInPage.uEmail);
+            account.GetAccount(dataGridView1, user);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox1.Text = dataGridView1.SelectedCells[0].Value.ToString();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace OnlineBank
 {
@@ -67,6 +68,12 @@ namespace OnlineBank
                 loop++;
             }
             return rNum;
+        }
+
+        public void GetAccount (DataGridView dataGridView,User user)
+        {
+            string query = $"SELECT AccountNumber,Balance FROM `accounts` where UserID={user.ID};";
+            data.FillDataGrid(dataGridView, query);
         }
         
         

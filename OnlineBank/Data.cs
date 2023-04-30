@@ -52,7 +52,25 @@ namespace OnlineBank
                 MessageBox.Show(ex.Message);
             }
             return 0;
-            
+        }
+
+        public void FillComboBox(ComboBox comboBox,string query)
+        {
+            MySqlDataReader result = SelectQuery(query);
+            while(result.Read())
+            {
+                comboBox.Items.Add(result[0].ToString());
+            }
+        }
+
+        public void FillDataGrid(DataGridView dataGridView,string query)
+        {
+            OpenConnection();
+            command = new MySqlCommand(query,connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataSet dataSet = new DataSet();
+            adapter.Fill(dataSet);
+            dataGridView.DataSource = dataSet.Tables[0];
         }
     }
 }

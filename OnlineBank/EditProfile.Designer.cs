@@ -261,6 +261,7 @@
             this.Controls.Add(this.fName);
             this.Controls.Add(this.label1);
             this.Name = "EditProfile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditProfile";
             this.Load += new System.EventHandler(this.EditProfile_Load);
             this.ResumeLayout(false);

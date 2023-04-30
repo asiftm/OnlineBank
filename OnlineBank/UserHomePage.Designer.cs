@@ -118,6 +118,7 @@
             this.Controls.Add(this.userName);
             this.Controls.Add(this.userProfilePicture);
             this.Name = "UserHomePage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserHomePage";
             this.Load += new System.EventHandler(this.UserHomePage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.userProfilePicture)).EndInit();
