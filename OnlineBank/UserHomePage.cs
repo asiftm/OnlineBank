@@ -51,5 +51,12 @@ namespace OnlineBank
             user = user.GetUser(LogInPage.uEmail);
             userName.Text = user.FirstName + " " + user.LastName;
         }
+
+        private void createAccount_Click(object sender, EventArgs e)
+        {
+            AddAccount addAccount = new AddAccount();
+            addAccount.Show();
+            this.Hide();
+        }
     }
 }

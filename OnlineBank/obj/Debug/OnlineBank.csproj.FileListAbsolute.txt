@@ -28,3 +28,4 @@ C:\Users\WALTON\source\repos\InspirationLab\OnlineBank\obj\Debug\OnlineBank.cspr
 C:\Users\WALTON\source\repos\InspirationLab\OnlineBank\obj\Debug\OnlineBank.csproj.CopyComplete
 C:\Users\WALTON\source\repos\InspirationLab\OnlineBank\obj\Debug\OnlineBank.exe
 C:\Users\WALTON\source\repos\InspirationLab\OnlineBank\obj\Debug\OnlineBank.pdb
+C:\Users\WALTON\source\repos\InspirationLab\OnlineBank\obj\Debug\OnlineBank.AddAccount.resources

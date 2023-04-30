@@ -78,6 +78,7 @@
             this.createAccount.TabIndex = 3;
             this.createAccount.Text = "Create new account";
             this.createAccount.UseVisualStyleBackColor = false;
+            this.createAccount.Click += new System.EventHandler(this.createAccount_Click);
             // 
             // editProfile
             // 

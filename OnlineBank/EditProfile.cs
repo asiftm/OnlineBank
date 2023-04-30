@@ -74,7 +74,7 @@ namespace OnlineBank
                     MessageBox.Show("Fill all fields!");
                 }
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 MessageBox.Show("Invalid data format!");
             }
