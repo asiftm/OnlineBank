@@ -116,5 +116,20 @@ namespace OnlineBank
             }
             return temp;
         }
+
+        public bool UserAccountCheck(User user)
+        {
+            bool temp = false;
+            string query = $"SELECT * FROM `accounts` WHERE UserID='{user.ID}';";
+            MySqlDataReader result = data.SelectQuery(query);
+            while (result.Read())
+            {
+                if (Convert.ToInt32(result[1].ToString()) >= 1)
+                {
+                    temp = true;
+                }
+            }
+            return temp;
+        }
     }
 }

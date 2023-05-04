@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,8 +14,9 @@ namespace OnlineBank
     public partial class UserHomePage : Form
     {
         User user = new User();
-        
-        
+        Account account = new Account();
+        bool moneySend = false;
+
         public UserHomePage()
         {
             InitializeComponent();
@@ -50,6 +52,18 @@ namespace OnlineBank
         {
             user = user.GetUser(LogInPage.uEmail);
             userName.Text = user.FirstName + " " + user.LastName;
+
+            if (account.UserAccountCheck(user))
+            {
+                moneySend = true;
+                account.GetAccount(dataGridView1, user);
+            }
+            else
+            {
+                dataGridView1.Visible = false;
+                label1.Text = "No accounts to show :(";
+                
+            }
         }
 
         private void createAccount_Click(object sender, EventArgs e)
@@ -61,9 +75,26 @@ namespace OnlineBank
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SendMoney sendMoney = new SendMoney();
-            sendMoney.Show();
-            this.Hide();
+            if (moneySend)
+            {
+                SendMoney sendMoney = new SendMoney();
+                sendMoney.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Create account to send money!");
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
