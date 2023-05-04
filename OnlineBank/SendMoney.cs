@@ -52,5 +52,70 @@ namespace OnlineBank
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(textBox1.Text != string.Empty && textBox2.Text != string.Empty && textBox4.Text != string.Empty)
+            {
+                string senderAccount = textBox1.Text;
+                string receiverAccount = textBox2.Text;
+                double moneyInput = Convert.ToDouble(textBox4.Text.ToString());
+
+                if (account.VerifyAccount(senderAccount) && account.VerifyAccount(receiverAccount))
+                {
+                    double senderBalance = account.CheckBalance(senderAccount);
+                    double receiverBalance = account.CheckBalance(receiverAccount);
+                    if (senderBalance >= moneyInput)
+                    {
+                        user.Password = textBox3.Text;
+                        if(user.VerifyUser(user))
+                        {
+                            senderBalance = senderBalance - moneyInput;
+                            receiverBalance = receiverBalance + moneyInput;
+
+                            account.ChangeBalance(senderAccount, senderBalance);
+                            account.ChangeBalance(receiverAccount, receiverBalance);
+
+                            MessageBox.Show("Transection Successful");
+
+                            UserHomePage userHomePage = new UserHomePage();
+                            userHomePage.Show();
+                            this.Hide();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Wrong Password");
+                            textBox3.Focus();
+                        }
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("Insufficient Balance!");
+                        textBox4.Focus();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Account Number!");
+                    textBox2.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Fill all fields!");
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

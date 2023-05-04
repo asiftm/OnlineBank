@@ -120,7 +120,6 @@ namespace OnlineBank
         {
             bool temp = false;
             string query = $"UPDATE `user` SET `FirstName` = '{user.FirstName}', `LastName` = '{user.LastName}', `Password` = '{user.Password}', `DateOfBirth` = '{user.DateOfBirth}', `Email` = '{user.Email}', `Address` = '{user.Address}' WHERE `user`.`ID` = {user.ID}";
-            Console.WriteLine(query);
             if (data.NonSelectQuery(query) == 1)
             {
                 temp = true;

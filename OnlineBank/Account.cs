@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace OnlineBank
 {
-    class Account:User
+    class Account : User
     {
         Data data = new Data();
 
@@ -19,11 +19,11 @@ namespace OnlineBank
         public decimal Balance { get; set; }
 
         //constructors
-        public Account ()
+        public Account()
         {
-            
+
         }
-        public Account(int _accountNumber, int _userId, decimal _balance):base(_userId)
+        public Account(int _accountNumber, int _userId, decimal _balance) : base(_userId)
         {
             AccountNumber = _accountNumber;
             Balance = _balance;
@@ -35,7 +35,7 @@ namespace OnlineBank
             bool temp = false;
             string query = $"select * from accounts where accountnumber='BE{rNum}'";
             MySqlDataReader result = data.SelectQuery(query);
-            if (result.HasRows==false)
+            if (result.HasRows == false)
             {
                 temp = true;
             }
@@ -51,7 +51,7 @@ namespace OnlineBank
             };
             return temp;
         }
-        
+
         public int GenerateAccountNumber(User user)
         {
             bool temp = false;
@@ -70,12 +70,51 @@ namespace OnlineBank
             return rNum;
         }
 
-        public void GetAccount (DataGridView dataGridView,User user)
+        public void GetAccount(DataGridView dataGridView, User user)
         {
             string query = $"SELECT AccountNumber,Balance FROM `accounts` where UserID={user.ID};";
             data.FillDataGrid(dataGridView, query);
         }
-        
-        
+
+        public bool VerifyAccount(string account)
+        {
+            bool temp = false;
+            string query = $"SELECT * FROM `accounts` WHERE AccountNumber='{account}'";
+            MySqlDataReader result = data.SelectQuery(query);
+            while (result.Read())
+            {
+                if (result[0].ToString() == account)
+                {
+                    temp = true;
+                }
+            }
+            return temp;
+        }
+
+        public double CheckBalance(string account)
+        {
+            double balance = 0;
+            string query = $"SELECT * FROM `accounts` WHERE AccountNumber='{account}';";
+            MySqlDataReader result = data.SelectQuery(query);
+            while (result.Read())
+            {
+                if (result[0].ToString() == account)
+                {
+                    balance = Convert.ToDouble(result[2]);
+                }
+            }
+            return balance;
+        }
+
+        public bool ChangeBalance(string account, double amount)
+        {
+            bool temp = false;
+            string query = $"UPDATE `accounts` SET `Balance` = '{amount}' WHERE `accounts`.`AccountNumber` = '{account}';";
+            if (data.NonSelectQuery(query) == 1)
+            {
+                temp = true;
+            }
+            return temp;
+        }
     }
 }
