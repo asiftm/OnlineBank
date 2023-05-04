@@ -88,6 +88,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(149, 20);
             this.textBox3.TabIndex = 5;
+            this.textBox3.UseSystemPasswordChar = true;
             // 
             // label4
             // 

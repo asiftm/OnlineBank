@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace OnlineBank
 {
@@ -59,47 +60,56 @@ namespace OnlineBank
             {
                 string senderAccount = textBox1.Text;
                 string receiverAccount = textBox2.Text;
-                double moneyInput = Convert.ToDouble(textBox4.Text.ToString());
+                //double moneyInput = Convert.ToDouble(textBox4.Text.ToString());
+                double moneyInput;
+                bool parseSuccess = double.TryParse(textBox4.Text, out moneyInput);
 
-                if (account.VerifyAccount(senderAccount) && account.VerifyAccount(receiverAccount))
+                if (parseSuccess)
                 {
-                    double senderBalance = account.CheckBalance(senderAccount);
-                    double receiverBalance = account.CheckBalance(receiverAccount);
-                    if (senderBalance >= moneyInput)
+                    if (account.VerifyAccount(senderAccount) && account.VerifyAccount(receiverAccount))
                     {
-                        user.Password = textBox3.Text;
-                        if(user.VerifyUser(user))
+                        double senderBalance = account.CheckBalance(senderAccount);
+                        double receiverBalance = account.CheckBalance(receiverAccount);
+                        if (senderBalance >= moneyInput)
                         {
-                            senderBalance = senderBalance - moneyInput;
-                            receiverBalance = receiverBalance + moneyInput;
+                            user.Password = textBox3.Text;
+                            if (user.VerifyUser(user))
+                            {
+                                senderBalance = senderBalance - moneyInput;
+                                receiverBalance = receiverBalance + moneyInput;
 
-                            account.ChangeBalance(senderAccount, senderBalance);
-                            account.ChangeBalance(receiverAccount, receiverBalance);
+                                account.ChangeBalance(senderAccount, senderBalance);
+                                account.ChangeBalance(receiverAccount, receiverBalance);
 
-                            MessageBox.Show("Transection Successful");
+                                MessageBox.Show("Transection Successful");
 
-                            UserHomePage userHomePage = new UserHomePage();
-                            userHomePage.Show();
-                            this.Hide();
+                                UserHomePage userHomePage = new UserHomePage();
+                                userHomePage.Show();
+                                this.Hide();
 
+                            }
+                            else
+                            {
+                                MessageBox.Show("Wrong Password");
+                                textBox3.Focus();
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Wrong Password");
-                            textBox3.Focus();
+                            MessageBox.Show("Insufficient Balance!");
+                            textBox4.Focus();
                         }
-                        
                     }
                     else
                     {
-                        MessageBox.Show("Insufficient Balance!");
-                        textBox4.Focus();
+                        MessageBox.Show("Invalid Account Number!");
+                        textBox2.Focus();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Account Number!");
-                    textBox2.Focus();
+                    MessageBox.Show("Please enter correct amount.");
+                    textBox4.Focus();
                 }
             }
             else
