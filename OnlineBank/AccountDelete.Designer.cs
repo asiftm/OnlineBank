@@ -83,9 +83,10 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(-3, 54);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(309, 18);
+            this.label3.Size = new System.Drawing.Size(322, 18);
             this.label3.TabIndex = 4;
-            this.label3.Text = "By confirming this, you will lost all of your data";
+            this.label3.Text = "By confirming this, you will lost all of your data :(";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button2
             // 
@@ -103,11 +104,11 @@
             // 
             this.button3.BackColor = System.Drawing.Color.DarkGreen;
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(15, 185);
+            this.button3.Location = new System.Drawing.Point(15, 194);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(110, 23);
             this.button3.TabIndex = 6;
-            this.button3.Text = "Back";
+            this.button3.Text = "Back to edit";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -116,7 +117,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(307, 265);
+            this.ClientSize = new System.Drawing.Size(319, 265);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
