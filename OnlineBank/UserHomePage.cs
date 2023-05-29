@@ -101,8 +101,6 @@ namespace OnlineBank
             AccountDisable account = new AccountDisable();
             account.Show();
             this.Hide();
-
-            //this is a comment
         }
     }
 }

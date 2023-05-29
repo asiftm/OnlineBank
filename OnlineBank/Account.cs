@@ -17,16 +17,18 @@ namespace OnlineBank
         //properties
         public int AccountNumber { get; set; }
         public decimal Balance { get; set; }
+        public bool AccountStatus { get; set; }
 
         //constructors
         public Account()
         {
 
         }
-        public Account(int _accountNumber, int _userId, decimal _balance) : base(_userId)
+        public Account(int _accountNumber, int _userId, decimal _balance, bool accountStatus) : base(_userId)
         {
             AccountNumber = _accountNumber;
             Balance = _balance;
+            AccountStatus = accountStatus;
         }
 
         //methods
