@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace OnlineBank
 {
-    public partial class AccountDelete : Form
+    public partial class AccountDisable : Form
     {
         User user = new User();
-        public AccountDelete()
+        public AccountDisable()
         {
             InitializeComponent();
         }
@@ -58,6 +58,11 @@ namespace OnlineBank
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click_1(object sender, EventArgs e)
         {
 
         }

@@ -139,12 +139,6 @@ namespace OnlineBank
             this.Hide();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            AccountDelete account = new AccountDelete();
-            account.Show();
-            this.Hide();
-
-        }
+        
     }
 }

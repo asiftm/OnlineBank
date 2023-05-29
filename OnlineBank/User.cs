@@ -135,7 +135,7 @@ namespace OnlineBank
             {
                 temp = true;
                 MessageBox.Show("Account deleted successful!");
-                AccountDelete accountDelete = new AccountDelete();
+                AccountDisable accountDelete = new AccountDisable();
                 accountDelete.Hide();
                 LogInPage logInPage = new LogInPage();
                 logInPage.Show();

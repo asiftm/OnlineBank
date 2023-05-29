@@ -60,8 +60,7 @@ namespace OnlineBank
             }
             else
             {
-                dataGridView1.Visible = false;
-                label1.Text = "No accounts to show :(";
+                dataGridView1.Visible = false;;
                 
             }
         }
@@ -95,6 +94,15 @@ namespace OnlineBank
         private void label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AccountDisable account = new AccountDisable();
+            account.Show();
+            this.Hide();
+
+            //this is a comment
         }
     }
 }
