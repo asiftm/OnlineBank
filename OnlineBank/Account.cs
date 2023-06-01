@@ -12,6 +12,7 @@ namespace OnlineBank
 {
     class Account : User
     {
+        //testing
         Data data = new Data();
 
         //properties
