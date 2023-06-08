@@ -66,39 +66,48 @@ namespace OnlineBank
 
                 if (parseSuccess)
                 {
-                    if (account.VerifyAccount(senderAccount) && account.VerifyAccount(receiverAccount))
+                    if (account.VerifyAccount(senderAccount) && account.VerifyAccount(receiverAccount) && account.AccountStatusCheck(receiverAccount))
                     {
-                        double senderBalance = account.CheckBalance(senderAccount);
-                        double receiverBalance = account.CheckBalance(receiverAccount);
-                        if (senderBalance >= moneyInput)
+                        if(account.AccountStatusCheck(senderAccount))
                         {
-                            user.Password = textBox3.Text;
-                            if (user.VerifyUser(user))
+                            double senderBalance = account.CheckBalance(senderAccount);
+                            double receiverBalance = account.CheckBalance(receiverAccount);
+                            if (senderBalance >= moneyInput)
                             {
-                                senderBalance = senderBalance - moneyInput;
-                                receiverBalance = receiverBalance + moneyInput;
+                                user.Password = textBox3.Text;
+                                if (user.VerifyUser(user))
+                                {
+                                    senderBalance = senderBalance - moneyInput;
+                                    receiverBalance = receiverBalance + moneyInput;
 
-                                account.ChangeBalance(senderAccount, senderBalance);
-                                account.ChangeBalance(receiverAccount, receiverBalance);
+                                    account.ChangeBalance(senderAccount, senderBalance);
+                                    account.ChangeBalance(receiverAccount, receiverBalance);
 
-                                MessageBox.Show("Transection Successful");
+                                    MessageBox.Show("Transection Successful");
 
-                                UserHomePage userHomePage = new UserHomePage();
-                                userHomePage.Show();
-                                this.Hide();
+                                    UserHomePage userHomePage = new UserHomePage();
+                                    userHomePage.Show();
+                                    this.Hide();
 
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Wrong Password");
+                                    textBox3.Focus();
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("Wrong Password");
-                                textBox3.Focus();
+                                MessageBox.Show("Insufficient Balance!");
+                                textBox4.Focus();
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Insufficient Balance!");
-                            textBox4.Focus();
+                            MessageBox.Show("Change your account status.");
+                            textBox2.Focus();
                         }
+                        
                     }
                     else
                     {

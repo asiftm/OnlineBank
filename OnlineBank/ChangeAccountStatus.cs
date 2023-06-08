@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace OnlineBank
 {
-    public partial class AccountDisable : Form
+    public partial class ChangeAccountStatus : Form
     {
         User user = new User();
-        public AccountDisable()
+        public ChangeAccountStatus()
         {
             InitializeComponent();
         }

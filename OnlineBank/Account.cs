@@ -134,5 +134,17 @@ namespace OnlineBank
             }
             return temp;
         }
+        public bool AccountStatusCheck(string account)
+        {
+            bool status = false;
+            string query = $"SELECT * FROM `accounts` WHERE AccountNumber='{account}' and Status = '1';";
+            MySqlDataReader result = data.SelectQuery(query);
+            if(result.HasRows)
+            {
+                status = true;
+            }
+            return status;
+        }
     }
 }
+

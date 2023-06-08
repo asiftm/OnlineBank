@@ -98,8 +98,8 @@ namespace OnlineBank
 
         private void button4_Click(object sender, EventArgs e)
         {
-            AccountDisable account = new AccountDisable();
-            account.Show();
+            ChangeAccountStatus changeAccountStatus = new ChangeAccountStatus();
+            changeAccountStatus.Show();
             this.Hide();
         }
     }
