@@ -47,7 +47,7 @@ namespace OnlineBank
         public bool CreateAccount(User user, string rNum, string iBal)
         {
             bool temp = false;
-            string query = $"INSERT INTO `accounts` (`AccountNumber`, `UserID`, `Balance`) VALUES ('BE{rNum}', '{user.ID}', '{iBal}');";
+            string query = $"INSERT INTO `accounts` (`AccountNumber`, `UserID`, `Balance`, `Status`) VALUES ('BE{rNum}', '{user.ID}', '{iBal}', '1');";
             if (data.NonSelectQuery(query) == 1)
             {
                 temp = true;
@@ -75,7 +75,7 @@ namespace OnlineBank
 
         public void GetAccount(DataGridView dataGridView, User user)
         {
-            string query = $"SELECT AccountNumber,Balance FROM `accounts` where UserID={user.ID};";
+            string query = $"SELECT AccountNumber,Balance,Status FROM `accounts` where UserID={user.ID};";
             data.FillDataGrid(dataGridView, query);
         }
 
