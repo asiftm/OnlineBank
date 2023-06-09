@@ -3,6 +3,7 @@ using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,7 +55,6 @@ namespace OnlineBank
             };
             return temp;
         }
-
         public int GenerateAccountNumber(User user)
         {
             bool temp = false;
@@ -72,17 +72,28 @@ namespace OnlineBank
             }
             return rNum;
         }
-
         public void GetAccount(DataGridView dataGridView, User user)
         {
-            string query = $"SELECT AccountNumber,Balance,Status FROM `accounts` where UserID={user.ID};";
+            string query = $"SELECT AccountNumber,Balance,Status FROM `accounts` where UserID='{user.ID}';";
             data.FillDataGrid(dataGridView, query);
         }
-
-        public bool VerifyAccount(string account)
+        public bool VerifyUserAccount(string account,User user)
         {
             bool temp = false;
-            string query = $"SELECT * FROM `accounts` WHERE AccountNumber='{account}'";
+            string query = $"SELECT * FROM `accounts` WHERE AccountNumber='{account}' and UserID='{user.ID}';";
+            MySqlDataReader result = data.SelectQuery(query);
+            while (result.Read())
+            {
+                if (result[0].ToString() == account)
+                {
+                    temp = true;
+                }
+            }
+            return temp;
+        }public bool VerifyAccount(string account)
+        {
+            bool temp = false;
+            string query = $"SELECT * FROM `accounts` WHERE AccountNumber='{account}';";
             MySqlDataReader result = data.SelectQuery(query);
             while (result.Read())
             {
@@ -93,7 +104,6 @@ namespace OnlineBank
             }
             return temp;
         }
-
         public double CheckBalance(string account)
         {
             double balance = 0;
@@ -108,7 +118,6 @@ namespace OnlineBank
             }
             return balance;
         }
-
         public bool ChangeBalance(string account, double amount)
         {
             bool temp = false;
@@ -119,7 +128,6 @@ namespace OnlineBank
             }
             return temp;
         }
-
         public bool UserAccountCheck(User user)
         {
             bool temp = false;
@@ -134,7 +142,7 @@ namespace OnlineBank
             }
             return temp;
         }
-        public bool AccountStatusCheck(string account)
+        public bool EnableStatusCheck(string account)
         {
             bool status = false;
             string query = $"SELECT * FROM `accounts` WHERE AccountNumber='{account}' and Status = '1';";
@@ -144,6 +152,27 @@ namespace OnlineBank
                 status = true;
             }
             return status;
+        }
+        public bool DisableStatusCheck(string account)
+        {
+            bool status = false;
+            string query = $"SELECT * FROM `accounts` WHERE AccountNumber='{account}' and Status = '0';";
+            MySqlDataReader result = data.SelectQuery(query);
+            if (result.HasRows)
+            {
+                status = true;
+            }
+            return status;
+        }
+        public bool ChangeStatus(string account,string status)
+        {
+            bool temp = false;
+            string query = $"UPDATE `accounts` SET `Status` = '{status}' WHERE `accounts`.`AccountNumber` = '{account}';";
+            if (data.NonSelectQuery(query) == 1)
+            {
+                temp = true;
+            }
+            return temp;
         }
     }
 }

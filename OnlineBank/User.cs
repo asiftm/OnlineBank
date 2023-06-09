@@ -126,21 +126,5 @@ namespace OnlineBank
             }
             return temp;
         }
-
-        public bool DeleteUser(User user)
-        {
-            bool temp = false;
-            String query = $"DELETE FROM user WHERE user.FirstName='{user.FirstName}'";
-            if (data.NonSelectQuery(query) == 1)
-            {
-                temp = true;
-                MessageBox.Show("Account deleted successful!");
-                ChangeAccountStatus accountDelete = new ChangeAccountStatus();
-                accountDelete.Hide();
-                LogInPage logInPage = new LogInPage();
-                logInPage.Show();
-            };
-            return temp;
-        }
     }
 }

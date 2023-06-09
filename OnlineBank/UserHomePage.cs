@@ -15,7 +15,6 @@ namespace OnlineBank
     {
         User user = new User();
         Account account = new Account();
-        bool moneySend = false;
 
         public UserHomePage()
         {
@@ -55,13 +54,15 @@ namespace OnlineBank
 
             if (account.UserAccountCheck(user))
             {
-                moneySend = true;
                 account.GetAccount(dataGridView1, user);
+                label2.Visible = false;
             }
             else
             {
-                dataGridView1.Visible = false;;
-                
+                dataGridView1.Visible = false;
+                button1.Visible = false;
+                button4.Visible = false;
+
             }
         }
 
@@ -74,16 +75,10 @@ namespace OnlineBank
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (moneySend)
-            {
-                SendMoney sendMoney = new SendMoney();
-                sendMoney.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Create account to send money!");
-            }
+            
+            SendMoney sendMoney = new SendMoney();
+            sendMoney.Show();
+            this.Hide();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -101,6 +96,11 @@ namespace OnlineBank
             ChangeAccountStatus changeAccountStatus = new ChangeAccountStatus();
             changeAccountStatus.Show();
             this.Hide();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

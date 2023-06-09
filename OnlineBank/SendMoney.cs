@@ -66,52 +66,60 @@ namespace OnlineBank
 
                 if (parseSuccess)
                 {
-                    if (account.VerifyAccount(senderAccount) && account.VerifyAccount(receiverAccount) && account.AccountStatusCheck(receiverAccount))
+                    if (account.VerifyUserAccount(senderAccount,user))
                     {
-                        if(account.AccountStatusCheck(senderAccount))
+                        if(account.EnableStatusCheck(senderAccount))
                         {
-                            double senderBalance = account.CheckBalance(senderAccount);
-                            double receiverBalance = account.CheckBalance(receiverAccount);
-                            if (senderBalance >= moneyInput)
+                            if(account.VerifyAccount(receiverAccount) && account.EnableStatusCheck(receiverAccount))
                             {
-                                user.Password = textBox3.Text;
-                                if (user.VerifyUser(user))
+                                
+                                double senderBalance = account.CheckBalance(senderAccount);
+                                double receiverBalance = account.CheckBalance(receiverAccount);
+                                if (senderBalance >= moneyInput)
                                 {
-                                    senderBalance = senderBalance - moneyInput;
-                                    receiverBalance = receiverBalance + moneyInput;
+                                    user.Password = textBox3.Text;
+                                    if (user.VerifyUser(user))
+                                    {
+                                        senderBalance = senderBalance - moneyInput;
+                                        receiverBalance = receiverBalance + moneyInput;
 
-                                    account.ChangeBalance(senderAccount, senderBalance);
-                                    account.ChangeBalance(receiverAccount, receiverBalance);
+                                        account.ChangeBalance(senderAccount, senderBalance);
+                                        account.ChangeBalance(receiverAccount, receiverBalance);
 
-                                    MessageBox.Show("Transection Successful");
+                                        MessageBox.Show("Transection Successful");
 
-                                    UserHomePage userHomePage = new UserHomePage();
-                                    userHomePage.Show();
-                                    this.Hide();
+                                        UserHomePage userHomePage = new UserHomePage();
+                                        userHomePage.Show();
+                                        this.Hide();
 
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Wrong Password");
+                                        textBox3.Focus();
+                                    }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Wrong Password");
-                                    textBox3.Focus();
+                                    MessageBox.Show("Insufficient Balance!");
+                                    textBox4.Focus();
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Insufficient Balance!");
-                                textBox4.Focus();
+                                MessageBox.Show("Receiver account Not found.");
+                                textBox2.Focus();
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Change your account status.");
+                            MessageBox.Show("Your account is disabled.\nChange your account status.");
                             textBox2.Focus();
                         }
-                        
                     }
                     else
                     {
-                        MessageBox.Show("Invalid Account Number!");
+                        MessageBox.Show("Your account number is wrong!");
                         textBox2.Focus();
                     }
                 }
