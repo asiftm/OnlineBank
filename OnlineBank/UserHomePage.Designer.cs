@@ -39,9 +39,13 @@
             this.button4 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.userProfilePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // userProfilePicture
@@ -70,7 +74,7 @@
             // 
             this.logout.BackColor = System.Drawing.Color.OrangeRed;
             this.logout.ForeColor = System.Drawing.Color.White;
-            this.logout.Location = new System.Drawing.Point(831, 454);
+            this.logout.Location = new System.Drawing.Point(13, 661);
             this.logout.Margin = new System.Windows.Forms.Padding(4);
             this.logout.Name = "logout";
             this.logout.Size = new System.Drawing.Size(100, 28);
@@ -83,7 +87,7 @@
             // 
             this.createAccount.BackColor = System.Drawing.Color.ForestGreen;
             this.createAccount.ForeColor = System.Drawing.Color.White;
-            this.createAccount.Location = new System.Drawing.Point(395, 266);
+            this.createAccount.Location = new System.Drawing.Point(404, 287);
             this.createAccount.Margin = new System.Windows.Forms.Padding(4);
             this.createAccount.Name = "createAccount";
             this.createAccount.Size = new System.Drawing.Size(156, 39);
@@ -96,7 +100,7 @@
             // 
             this.editProfile.BackColor = System.Drawing.Color.ForestGreen;
             this.editProfile.ForeColor = System.Drawing.Color.White;
-            this.editProfile.Location = new System.Drawing.Point(314, 15);
+            this.editProfile.Location = new System.Drawing.Point(841, 13);
             this.editProfile.Margin = new System.Windows.Forms.Padding(4);
             this.editProfile.Name = "editProfile";
             this.editProfile.Size = new System.Drawing.Size(115, 41);
@@ -109,7 +113,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.ForestGreen;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(418, 153);
+            this.button1.Location = new System.Drawing.Point(414, 196);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 41);
@@ -151,7 +155,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.Chocolate;
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(20, 454);
+            this.button4.Location = new System.Drawing.Point(20, 429);
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(177, 28);
@@ -178,7 +182,7 @@
             this.dataGridView2.BackgroundColor = System.Drawing.Color.PowderBlue;
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(564, 153);
+            this.dataGridView2.Location = new System.Drawing.Point(589, 153);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
@@ -187,12 +191,55 @@
             this.dataGridView2.TabIndex = 39;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView3.BackgroundColor = System.Drawing.Color.PowderBlue;
+            this.dataGridView3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(589, 451);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.RowHeadersWidth = 33;
+            this.dataGridView3.Size = new System.Drawing.Size(367, 238);
+            this.dataGridView3.TabIndex = 40;
+            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(585, 113);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(263, 24);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "Outgoing Transaction History :";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(585, 409);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(263, 24);
+            this.label4.TabIndex = 42;
+            this.label4.Text = "Incoming Transaction History :";
+            // 
             // UserHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(953, 495);
+            this.ClientSize = new System.Drawing.Size(971, 702);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button4);
@@ -212,6 +259,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.userProfilePicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,5 +278,8 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

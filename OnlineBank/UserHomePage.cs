@@ -57,7 +57,8 @@ namespace OnlineBank
                 account.GetAccounts(dataGridView1, user);
                 label2.Visible = false;
 
-                transaction.GetHistory(dataGridView2, user);
+                transaction.GetOutgoingHistory(dataGridView2, user);
+                transaction.GetIncomingHistory(dataGridView3, user);
             }
             else
             {
@@ -107,6 +108,16 @@ namespace OnlineBank
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
