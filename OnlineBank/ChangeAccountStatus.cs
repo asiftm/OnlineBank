@@ -77,7 +77,7 @@ namespace OnlineBank
         private void AccountDelete_Load(object sender, EventArgs e)
         {
             user = user.GetUser(LogInPage.uEmail);
-            account.GetAccount(dataGridView1, user);
+            account.GetAccounts(dataGridView1, user);
         }
 
         public void AccountDeleteHide()

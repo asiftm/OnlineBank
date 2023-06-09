@@ -15,7 +15,7 @@ namespace OnlineBank
     {
         User user = new User();
         Account account = new Account();
-
+        Transaction transaction = new Transaction();
         public UserHomePage()
         {
             InitializeComponent();
@@ -54,12 +54,15 @@ namespace OnlineBank
 
             if (account.UserAccountCheck(user))
             {
-                account.GetAccount(dataGridView1, user);
+                account.GetAccounts(dataGridView1, user);
                 label2.Visible = false;
+
+                transaction.GetHistory(dataGridView2, user);
             }
             else
             {
                 dataGridView1.Visible = false;
+                dataGridView2.Visible = false;
                 button1.Visible = false;
                 button4.Visible = false;
 
@@ -99,6 +102,11 @@ namespace OnlineBank
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

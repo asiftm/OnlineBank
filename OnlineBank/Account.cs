@@ -13,7 +13,6 @@ namespace OnlineBank
 {
     class Account : User
     {
-        //testing
         Data data = new Data();
 
         //properties
@@ -72,7 +71,7 @@ namespace OnlineBank
             }
             return rNum;
         }
-        public void GetAccount(DataGridView dataGridView, User user)
+        public void GetAccounts(DataGridView dataGridView, User user)
         {
             string query = $"SELECT AccountNumber,Balance,Status FROM `accounts` where UserID='{user.ID}';";
             data.FillDataGrid(dataGridView, query);

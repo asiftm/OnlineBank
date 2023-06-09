@@ -41,7 +41,7 @@ namespace OnlineBank
         private void SendMoney_Load(object sender, EventArgs e)
         {
             user = user.GetUser(LogInPage.uEmail);
-            account.GetAccount(dataGridView1, user);
+            account.GetAccounts(dataGridView1, user);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -80,13 +80,19 @@ namespace OnlineBank
                                     user.Password = textBox3.Text;
                                     if (user.VerifyUser(user))
                                     {
+                                        //calculating the new amount in the accounts
                                         senderBalance = senderBalance - moneyInput;
                                         receiverBalance = receiverBalance + moneyInput;
 
+                                        //changing the balances in database
                                         account.ChangeBalance(senderAccount, senderBalance);
                                         account.ChangeBalance(receiverAccount, receiverBalance);
 
-                                        MessageBox.Show("Transection Successful");
+                                        //creating a transection history
+                                        Transaction transection = new Transaction();
+                                        transection.AddTransactionHistory(senderAccount,receiverAccount,moneyInput);
+
+                                        MessageBox.Show("Transection Successful.\nCheck your transection history");
 
                                         UserHomePage userHomePage = new UserHomePage();
                                         userHomePage.Show();

@@ -38,8 +38,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.userProfilePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // userProfilePicture
@@ -68,7 +70,7 @@
             // 
             this.logout.BackColor = System.Drawing.Color.OrangeRed;
             this.logout.ForeColor = System.Drawing.Color.White;
-            this.logout.Location = new System.Drawing.Point(800, 21);
+            this.logout.Location = new System.Drawing.Point(831, 454);
             this.logout.Margin = new System.Windows.Forms.Padding(4);
             this.logout.Name = "logout";
             this.logout.Size = new System.Drawing.Size(100, 28);
@@ -81,7 +83,7 @@
             // 
             this.createAccount.BackColor = System.Drawing.Color.ForestGreen;
             this.createAccount.ForeColor = System.Drawing.Color.White;
-            this.createAccount.Location = new System.Drawing.Point(564, 16);
+            this.createAccount.Location = new System.Drawing.Point(395, 266);
             this.createAccount.Margin = new System.Windows.Forms.Padding(4);
             this.createAccount.Name = "createAccount";
             this.createAccount.Size = new System.Drawing.Size(156, 39);
@@ -94,7 +96,7 @@
             // 
             this.editProfile.BackColor = System.Drawing.Color.ForestGreen;
             this.editProfile.ForeColor = System.Drawing.Color.White;
-            this.editProfile.Location = new System.Drawing.Point(411, 15);
+            this.editProfile.Location = new System.Drawing.Point(314, 15);
             this.editProfile.Margin = new System.Windows.Forms.Padding(4);
             this.editProfile.Name = "editProfile";
             this.editProfile.Size = new System.Drawing.Size(115, 41);
@@ -107,7 +109,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.ForestGreen;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(411, 153);
+            this.button1.Location = new System.Drawing.Point(418, 153);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 41);
@@ -168,12 +170,30 @@
             this.label2.Text = "You have no accounts to show";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.PowderBlue;
+            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(564, 153);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersWidth = 33;
+            this.dataGridView2.Size = new System.Drawing.Size(367, 238);
+            this.dataGridView2.TabIndex = 39;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
             // UserHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(913, 495);
+            this.ClientSize = new System.Drawing.Size(953, 495);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label1);
@@ -191,6 +211,7 @@
             this.Load += new System.EventHandler(this.UserHomePage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.userProfilePicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,5 +229,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
