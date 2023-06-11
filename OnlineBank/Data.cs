@@ -30,14 +30,12 @@ namespace OnlineBank
                 connection.Close();
             }
         }
-        
         public MySqlDataReader SelectQuery(string query)
         {
             OpenConnection();
             command = new MySqlCommand(query,connection);
             return command.ExecuteReader();
         }
-
         public int NonSelectQuery(string qurey)
         {
             try
@@ -53,25 +51,6 @@ namespace OnlineBank
                 MessageBox.Show("An error occured!\nPlease try again.");
             }
             return 0;
-        }
-
-        public void FillComboBox(ComboBox comboBox,string query)
-        {
-            MySqlDataReader result = SelectQuery(query);
-            while(result.Read())
-            {
-                comboBox.Items.Add(result[0].ToString());
-            }
-        }
-
-        public void FillDataGrid(DataGridView dataGridView,string query)
-        {
-            OpenConnection();
-            command = new MySqlCommand(query,connection);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            adapter.Fill(dataSet);
-            dataGridView.DataSource = dataSet.Tables[0];
         }
         public DataTable DataGrid(string query)
         {
@@ -104,7 +83,6 @@ namespace OnlineBank
                 MessageBox.Show("An error occured!\nPlease try again.");
             }
             return 0;
-
         }
     }
 }

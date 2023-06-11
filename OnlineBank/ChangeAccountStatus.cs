@@ -49,18 +49,15 @@ namespace OnlineBank
 
                         MessageBox.Show("Account disabled");
 
-                        UserHomePage userHomePage = new UserHomePage();
-                        userHomePage.Show();
-                        this.Hide();
+                        dataGridView1.DataSource = account.GetAccounts(user);
                     }
                     else if (account.DisableStatusCheck(accountNumber))
                     {
                         string newStatus = "1";
                         account.ChangeStatus(accountNumber, newStatus);
                         MessageBox.Show("Account enabled");
-                        UserHomePage userHomePage = new UserHomePage();
-                        userHomePage.Show();
-                        this.Hide();
+
+                        dataGridView1.DataSource = account.GetAccounts(user);
                     }
                 }
                 else
