@@ -37,16 +37,6 @@ namespace OnlineBank
             command = new MySqlCommand(query,connection);
             return command.ExecuteReader();
         }
-        public DataTable SelectDatatable(string query)
-        {
-            OpenConnection();
-            command = new MySqlCommand(query, connection);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-            DataTable datatable = new DataTable();
-            adapter.Fill(datatable);
-            return datatable;
-        }
-
 
         public int NonSelectQuery(string qurey)
         {
@@ -82,6 +72,15 @@ namespace OnlineBank
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             dataGridView.DataSource = dataSet.Tables[0];
+        }
+        public DataTable DataGrid(string query)
+        {
+            DataTable dataTable = new DataTable();
+            OpenConnection();
+            command = new MySqlCommand(query,connection);
+            MySqlDataReader mySqlDataReader = command.ExecuteReader();
+            dataTable.Load(mySqlDataReader);
+            return dataTable;
         }
         public int InsertImage(User user, string query)
         {

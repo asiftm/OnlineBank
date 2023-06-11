@@ -2,6 +2,7 @@
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Security.Principal;
@@ -71,10 +72,10 @@ namespace OnlineBank
             }
             return rNum;
         }
-        public void GetAccounts(DataGridView dataGridView, User user)
+        public DataTable GetAccounts(User user)
         {
             string query = $"SELECT AccountNumber,Balance,Status FROM `accounts` where UserID='{user.ID}';";
-            data.FillDataGrid(dataGridView, query);
+            return data.DataGrid(query);
         }
         public bool VerifyUserAccount(string account,User user)
         {

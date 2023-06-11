@@ -74,10 +74,10 @@ namespace OnlineBank
             }
         }
 
-        private void AccountDelete_Load(object sender, EventArgs e)
+        private void changeAccountStatus_Load(object sender, EventArgs e)
         {
             user = user.GetUser(LogInPage.uEmail);
-            account.GetAccounts(dataGridView1, user);
+            dataGridView1.DataSource = account.GetAccounts(user);
         }
 
         public void AccountDeleteHide()

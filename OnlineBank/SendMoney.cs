@@ -41,7 +41,8 @@ namespace OnlineBank
         private void SendMoney_Load(object sender, EventArgs e)
         {
             user = user.GetUser(LogInPage.uEmail);
-            account.GetAccounts(dataGridView1, user);
+            //account.GetAccounts(dataGridView1, user);
+            dataGridView1.DataSource = account.GetAccounts(user);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

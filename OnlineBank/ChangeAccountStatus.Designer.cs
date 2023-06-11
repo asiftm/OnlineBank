@@ -150,7 +150,7 @@
             this.Name = "ChangeAccountStatus";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Change Account Status";
-            this.Load += new System.EventHandler(this.AccountDelete_Load);
+            this.Load += new System.EventHandler(this.changeAccountStatus_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

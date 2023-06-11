@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,14 +45,14 @@ namespace OnlineBank
             }
             return temp;
         }
-        public void GetOutgoingHistory(DataGridView dataGridView, User user)
+        public DataTable GetOutgoingHistory(User user)
         {
             string query = $"SELECT receiver as 'Sent to' ,amount as 'Amount' FROM user JOIN accounts ON user.ID = accounts.UserID JOIN transaction ON accounts.AccountNumber = transaction.sender WHERE UserID = {user.ID};";
-            data.FillDataGrid(dataGridView, query);
-        }public void GetIncomingHistory(DataGridView dataGridView, User user)
+            return data.DataGrid(query);
+        }public DataTable GetIncomingHistory(User user)
         {
             string query = $"SELECT sender as 'Received from',amount as 'Amount' FROM user JOIN accounts ON user.ID = accounts.UserID JOIN transaction ON accounts.AccountNumber = transaction.receiver WHERE UserID = {user.ID};";
-            data.FillDataGrid(dataGridView, query);
+            return data.DataGrid(query);
         }
     }
 }

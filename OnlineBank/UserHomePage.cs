@@ -61,11 +61,11 @@ namespace OnlineBank
 
             if (account.UserAccountCheck(user))
             {
-                account.GetAccounts(dataGridView1, user);
+                dataGridView1.DataSource = account.GetAccounts(user);
                 label2.Visible = false;
 
-                transaction.GetOutgoingHistory(dataGridView2, user);
-                transaction.GetIncomingHistory(dataGridView3, user);
+                dataGridView2.DataSource = transaction.GetOutgoingHistory(user);
+                dataGridView3.DataSource = transaction.GetIncomingHistory(user);
             }
             else
             {
