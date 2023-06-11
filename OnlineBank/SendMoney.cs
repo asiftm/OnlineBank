@@ -150,5 +150,13 @@ namespace OnlineBank
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Text=string.Empty;
+            textBox2.Text=string.Empty;
+            textBox3.Text=string.Empty;
+            textBox4.Text=string.Empty;
+        }
     }
 }

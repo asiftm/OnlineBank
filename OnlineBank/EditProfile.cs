@@ -14,7 +14,7 @@ namespace OnlineBank
     public partial class EditProfile : Form
     {
         User user = new User();
-        
+
         public EditProfile()
         {
             InitializeComponent();
@@ -42,10 +42,11 @@ namespace OnlineBank
                             user.DateOfBirth = textBox3.Text;
                             user.Address = textBox5.Text;
                             user.Password = textBox6.Text;
+                            user.Image = pictureBox1.Image;
 
                             if (user.UpdateUser(user))
                             {
-                                LogInPage.uEmail = user.Email;
+                                //LogInPage.uEmail = user.Email;
                                 MessageBox.Show("Update Complete");
                                 UserHomePage userHomePage = new UserHomePage();
                                 userHomePage.Show();
@@ -87,6 +88,7 @@ namespace OnlineBank
             textBox4.Text = user.Email;
             textBox5.Text = user.Address;
             textBox6.Text = user.Password;
+            pictureBox1.Image = user.Image;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -130,6 +132,8 @@ namespace OnlineBank
             textBox4.Text = user.Email;
             textBox5.Text = user.Address;
             textBox6.Text = user.Password;
+            pictureBox1.Image = user.Image;
+            textBox1.Focus();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -139,6 +143,19 @@ namespace OnlineBank
             this.Hide();
         }
 
-        
+        private void button6_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "png files(*.png)|*.png|jpg files(*.jpg)|*.jpg";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = Image.FromFile(openFileDialog.FileName);
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.userProfilePicture = new System.Windows.Forms.PictureBox();
             this.userName = new System.Windows.Forms.Label();
             this.logout = new System.Windows.Forms.Button();
             this.createAccount = new System.Windows.Forms.Button();
@@ -42,27 +41,19 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.userProfilePicture)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // userProfilePicture
-            // 
-            this.userProfilePicture.Location = new System.Drawing.Point(16, 15);
-            this.userProfilePicture.Margin = new System.Windows.Forms.Padding(4);
-            this.userProfilePicture.Name = "userProfilePicture";
-            this.userProfilePicture.Size = new System.Drawing.Size(67, 62);
-            this.userProfilePicture.TabIndex = 0;
-            this.userProfilePicture.TabStop = false;
-            this.userProfilePicture.Click += new System.EventHandler(this.userProfilePicture_Click);
             // 
             // userName
             // 
             this.userName.AutoSize = true;
             this.userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userName.Location = new System.Drawing.Point(108, 15);
+            this.userName.Location = new System.Drawing.Point(120, 15);
             this.userName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(124, 29);
@@ -231,12 +222,37 @@
             this.label4.TabIndex = 42;
             this.label4.Text = "Incoming Transaction History :";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(20, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(80, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 43;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(94, 17);
+            this.label5.TabIndex = 44;
+            this.label5.Text = "Upload Photo";
+            // 
             // UserHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(971, 702);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridView3);
@@ -250,24 +266,21 @@
             this.Controls.Add(this.createAccount);
             this.Controls.Add(this.logout);
             this.Controls.Add(this.userName);
-            this.Controls.Add(this.userProfilePicture);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserHomePage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserHomePage";
             this.Load += new System.EventHandler(this.UserHomePage_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.userProfilePicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox userProfilePicture;
         private System.Windows.Forms.Label userName;
         private System.Windows.Forms.Button logout;
         private System.Windows.Forms.Button createAccount;
@@ -281,5 +294,7 @@
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label5;
     }
 }

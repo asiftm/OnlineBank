@@ -46,11 +46,11 @@ namespace OnlineBank
         }
         public void GetOutgoingHistory(DataGridView dataGridView, User user)
         {
-            string query = $"SELECT receiver as 'Receiver' ,amount as 'Amount' FROM user JOIN accounts ON user.ID = accounts.UserID JOIN transaction ON accounts.AccountNumber = transaction.sender WHERE UserID = {user.ID};";
+            string query = $"SELECT receiver as 'Sent to' ,amount as 'Amount' FROM user JOIN accounts ON user.ID = accounts.UserID JOIN transaction ON accounts.AccountNumber = transaction.sender WHERE UserID = {user.ID};";
             data.FillDataGrid(dataGridView, query);
         }public void GetIncomingHistory(DataGridView dataGridView, User user)
         {
-            string query = $"SELECT sender as 'Sender',amount as 'Amount' FROM user JOIN accounts ON user.ID = accounts.UserID JOIN transaction ON accounts.AccountNumber = transaction.receiver WHERE UserID = {user.ID};";
+            string query = $"SELECT sender as 'Received from',amount as 'Amount' FROM user JOIN accounts ON user.ID = accounts.UserID JOIN transaction ON accounts.AccountNumber = transaction.receiver WHERE UserID = {user.ID};";
             data.FillDataGrid(dataGridView, query);
         }
     }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace OnlineBank
     public partial class CreateUser : Form
     {
         User user = new User();
+        string imageLocation = string.Empty;
         public CreateUser()
         {
             InitializeComponent();
@@ -41,6 +43,7 @@ namespace OnlineBank
                     user.DateOfBirth = textBox3.Text;
                     user.Email = textBox4.Text;
                     user.Address = textBox6.Text;
+                    user.Image = null;
 
                     if (user.PreviousAccountCheck(user) == false)
                     {
@@ -151,6 +154,11 @@ namespace OnlineBank
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void CreateUser_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

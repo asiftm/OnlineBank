@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
@@ -52,6 +53,12 @@ namespace OnlineBank
             user = user.GetUser(LogInPage.uEmail);
             userName.Text = user.FirstName + " " + user.LastName;
 
+            if(user.Image != null)
+            {
+                pictureBox1.Image = user.Image;
+                label5.Visible = false;
+            }
+
             if (account.UserAccountCheck(user))
             {
                 account.GetAccounts(dataGridView1, user);
@@ -66,7 +73,6 @@ namespace OnlineBank
                 dataGridView2.Visible = false;
                 button1.Visible = false;
                 button4.Visible = false;
-
             }
         }
 
@@ -118,6 +124,11 @@ namespace OnlineBank
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
+using System.IO;
 
 namespace OnlineBank
 {
     internal class Data
     {
-        private string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=bank;";
+        private string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=1234;database=bank;";
         MySqlConnection connection;
         MySqlCommand command;
 
@@ -36,6 +37,16 @@ namespace OnlineBank
             command = new MySqlCommand(query,connection);
             return command.ExecuteReader();
         }
+        public DataTable SelectDatatable(string query)
+        {
+            OpenConnection();
+            command = new MySqlCommand(query, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable datatable = new DataTable();
+            adapter.Fill(datatable);
+            return datatable;
+        }
+
 
         public int NonSelectQuery(string qurey)
         {
@@ -44,12 +55,12 @@ namespace OnlineBank
                 OpenConnection();
                 command = new MySqlCommand(qurey,connection);
                 int temp = command.ExecuteNonQuery();
-                connection.Close();
                 return temp;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                MessageBox.Show("An error occured!\nPlease try again.");
             }
             return 0;
         }
@@ -71,6 +82,30 @@ namespace OnlineBank
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
             dataGridView.DataSource = dataSet.Tables[0];
+        }
+        public int InsertImage(User user, string query)
+        {
+            try
+            {
+                MemoryStream memoryStream = new MemoryStream();
+                user.Image.Save(memoryStream, user.Image.RawFormat);
+                byte[] img = memoryStream.ToArray();
+
+                command = new MySqlCommand(query,connection);
+                command.Parameters.Add("@image",MySqlDbType.Blob).Value = img;
+            
+                OpenConnection();
+                int temp = command.ExecuteNonQuery();
+                connection.Close();
+                return temp;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("An error occured!\nPlease try again.");
+            }
+            return 0;
+
         }
     }
 }

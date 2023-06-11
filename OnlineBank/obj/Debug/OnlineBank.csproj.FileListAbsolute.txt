@@ -54,6 +54,7 @@ D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\O
 D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.CreateUser.resources
 D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.EditProfile.resources
 D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.AddAccount.resources
+D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.ChangeAccountStatus.resources
 D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.SendMoney.resources
 D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.LogInPage.resources
 D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.Properties.Resources.resources
@@ -63,4 +64,3 @@ D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\O
 D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.csproj.CopyComplete
 D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.exe
 D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.pdb
-D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.ChangeAccountStatus.resources
