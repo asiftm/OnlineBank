@@ -43,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -65,7 +66,7 @@
             // 
             this.logout.BackColor = System.Drawing.Color.OrangeRed;
             this.logout.ForeColor = System.Drawing.Color.White;
-            this.logout.Location = new System.Drawing.Point(13, 661);
+            this.logout.Location = new System.Drawing.Point(113, 661);
             this.logout.Margin = new System.Windows.Forms.Padding(4);
             this.logout.Name = "logout";
             this.logout.Size = new System.Drawing.Size(100, 28);
@@ -91,7 +92,7 @@
             // 
             this.editProfile.BackColor = System.Drawing.Color.ForestGreen;
             this.editProfile.ForeColor = System.Drawing.Color.White;
-            this.editProfile.Location = new System.Drawing.Point(841, 13);
+            this.editProfile.Location = new System.Drawing.Point(841, 15);
             this.editProfile.Margin = new System.Windows.Forms.Padding(4);
             this.editProfile.Name = "editProfile";
             this.editProfile.Size = new System.Drawing.Size(115, 41);
@@ -126,7 +127,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(367, 238);
+            this.dataGridView1.Size = new System.Drawing.Size(367, 312);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -146,7 +147,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.Chocolate;
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(20, 429);
+            this.button4.Location = new System.Drawing.Point(20, 491);
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(177, 28);
@@ -245,12 +246,26 @@
             this.label5.TabIndex = 44;
             this.label5.Text = "Upload Photo";
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Black;
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(15, 661);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(69, 28);
+            this.button3.TabIndex = 45;
+            this.button3.Text = "Exit";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // UserHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(971, 702);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
@@ -296,5 +311,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button3;
     }
 }

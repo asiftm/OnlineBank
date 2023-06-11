@@ -118,5 +118,10 @@ namespace OnlineBank
                 label3.Visible = true;
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
