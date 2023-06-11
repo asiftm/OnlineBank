@@ -67,6 +67,7 @@ namespace OnlineBank
             textBox6.Text = user.Password;
             pictureBox1.Image = user.Image;
             textBox1.Focus();
+            textBox7.Text = string.Empty;
         }
 
         private void button1_Click(object sender, EventArgs e)

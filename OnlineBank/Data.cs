@@ -83,6 +83,28 @@ namespace OnlineBank
                 MessageBox.Show("An error occured!\nPlease try again.");
             }
             return 0;
+        }public int InsertAdminImage(Admin admin, string query)
+        {
+            try
+            {
+                MemoryStream memoryStream = new MemoryStream();
+                admin.Image.Save(memoryStream, admin.Image.RawFormat);
+                byte[] img = memoryStream.ToArray();
+
+                command = new MySqlCommand(query,connection);
+                command.Parameters.Add("@image",MySqlDbType.Blob).Value = img;
+            
+                OpenConnection();
+                int temp = command.ExecuteNonQuery();
+                connection.Close();
+                return temp;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                MessageBox.Show("An error occured!\nPlease try again.");
+            }
+            return 0;
         }
     }
 }

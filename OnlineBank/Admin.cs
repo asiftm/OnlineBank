@@ -87,5 +87,32 @@ namespace OnlineBank
             string query = $"SELECT `id` as `UserID`,CONCAT(`FirstName`, ' ', `LastName`)as `Fullname`,`email` as `E-mail`FROM user;";
             return data.DataGrid(query);
         }
+        public bool PreviousAccountCheck(Admin admin)
+        {
+            bool temp = false;
+            string query = $"select * from `admin` where Email='{admin.Email}'";
+            MySqlDataReader result = data.SelectQuery(query);
+            while (result.Read())
+            {
+                if (Convert.ToInt32(result[0].ToString()) >= 1)
+                {
+                    temp = true;
+                }
+            }
+            return temp;
+        }
+        public bool UpdateAdmin(Admin admin)
+        {
+            bool temp = false;
+
+            string query = $"UPDATE `admin` SET `Name` = '{admin.Name}', `Email` = '{admin.Email}', `Password` = '{admin.Password}' WHERE `admin`.`id` = {admin.ID}";
+            string imageQuery = $"UPDATE `admin` SET `Image` = @image WHERE `admin`.`id` = {admin.ID}";
+
+            if (data.NonSelectQuery(query) == 1 && data.InsertAdminImage(admin, imageQuery) == 1)
+            {
+                temp = true;
+            }
+            return temp;
+        }
     }
 }

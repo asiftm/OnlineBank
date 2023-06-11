@@ -40,6 +40,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
+            this.editProfile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -169,6 +170,19 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // editProfile
+            // 
+            this.editProfile.BackColor = System.Drawing.Color.ForestGreen;
+            this.editProfile.ForeColor = System.Drawing.Color.White;
+            this.editProfile.Location = new System.Drawing.Point(408, 26);
+            this.editProfile.Margin = new System.Windows.Forms.Padding(4);
+            this.editProfile.Name = "editProfile";
+            this.editProfile.Size = new System.Drawing.Size(115, 41);
+            this.editProfile.TabIndex = 54;
+            this.editProfile.Text = "Edit Profile";
+            this.editProfile.UseVisualStyleBackColor = false;
+            this.editProfile.Click += new System.EventHandler(this.editProfile_Click);
+            // 
             // AdminHomepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -176,6 +190,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(536, 629);
+            this.Controls.Add(this.editProfile);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button4);
@@ -214,5 +229,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button editProfile;
     }
 }

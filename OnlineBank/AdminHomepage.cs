@@ -123,5 +123,12 @@ namespace OnlineBank
         {
             Application.Exit();
         }
+
+        private void editProfile_Click(object sender, EventArgs e)
+        {
+            AdminEditProfile adminEditProfile = new AdminEditProfile();
+            adminEditProfile.Show();
+            this.Hide();
+        }
     }
 }
