@@ -76,5 +76,28 @@ namespace OnlineBank
                 label3.Visible = true;
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text != string.Empty)
+            {
+                label3.Visible = false;
+                try
+                {
+                    int id = Convert.ToInt16(textBox1.Text.Trim());
+
+                    AdminAccessToUserTransaction accessToUserTransaction = new AdminAccessToUserTransaction(id);
+                    accessToUserTransaction.Show();
+                }
+                catch
+                {
+                    MessageBox.Show("Insert correct id");
+                }
+            }
+            else
+            {
+                label3.Visible = true;
+            }
+        }
     }
 }
