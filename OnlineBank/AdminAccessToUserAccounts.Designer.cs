@@ -124,6 +124,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "AdminAccessToUserAccounts";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminAccessToUserAccounts";
             this.Load += new System.EventHandler(this.AdminAccessToUserAccounts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

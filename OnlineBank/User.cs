@@ -126,7 +126,41 @@ namespace OnlineBank
                         user.Image = null;
                     }
                 }
-                catch(Exception ex)
+                catch
+                {
+                    user.Image=null;
+                }
+            }
+            return user;
+        }public User GetUserByID(int id)
+        {
+            User user = new User();
+            string query = $"select * from `user` where id='{id}'";
+            MySqlDataReader result = data.SelectQuery(query);
+            while (result.Read())
+            {
+                user.ID = (int)result[0];
+                user.FirstName = result[1].ToString();
+                user.LastName = result[2].ToString();
+                user.Password = result[3].ToString();
+                user.DateOfBirth = result[4].ToString().Split(' ')[0];
+                user.Email = result[5].ToString();
+                user.Address = result[6].ToString();
+                byte[] img;
+                try
+                {
+                    img = (byte[])result[7];
+                    if (img.Length > 0 )
+                    {
+                        MemoryStream stream = new MemoryStream(img);
+                        user.Image = Image.FromStream(stream);
+                    }
+                    else
+                    {
+                        user.Image = null;
+                    }
+                }
+                catch
                 {
                     user.Image=null;
                 }

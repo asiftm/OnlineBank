@@ -122,6 +122,7 @@
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.label2);
             this.Name = "AdminAccessToUserTransaction";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminAccessToUserTransaction";
             this.Load += new System.EventHandler(this.AdminAccessToUserTransaction_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();

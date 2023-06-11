@@ -75,7 +75,7 @@ namespace OnlineBank
                         admin.Image = null;
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
                     admin.Image = null;
                 }
@@ -87,11 +87,5 @@ namespace OnlineBank
             string query = $"SELECT `id` as `UserID`,CONCAT(`FirstName`, ' ', `LastName`)as `Fullname`,`email` as `E-mail`FROM user;";
             return data.DataGrid(query);
         }
-        public DataTable AccountsPerUser()
-        {
-            string query = $"SELECT `id` as `UserID`,CONCAT(`FirstName`, ' ', `LastName`)as `Fullname`,`email` as `E-mail`FROM user;";
-            return data.DataGrid(query);
-        }
-
     }
 }

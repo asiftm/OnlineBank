@@ -45,7 +45,26 @@ namespace OnlineBank
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (textBox1.Text != string.Empty)
+            {
+                label3.Visible = false;
+                try
+                {
+                    int id = Convert.ToInt16(textBox1.Text.Trim());
 
+                    AdminAccessToUserDetails adminAccessToUserDetails = new AdminAccessToUserDetails(id);
+                    adminAccessToUserDetails.Show();
+                    this.Hide();
+                }
+                catch
+                {
+                    MessageBox.Show("Insert correct id");
+                }
+            }
+            else
+            {
+                label3.Visible = true;
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

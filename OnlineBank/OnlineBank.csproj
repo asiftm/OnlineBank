@@ -77,6 +77,12 @@
     <Compile Include="AdminAccessToUserAccounts.Designer.cs">
       <DependentUpon>AdminAccessToUserAccounts.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminAccessToUserDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAccessToUserDetails.Designer.cs">
+      <DependentUpon>AdminAccessToUserDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminAccessToUserTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </Compile>
     <EmbeddedResource Include="AdminAccessToUserAccounts.resx">
       <DependentUpon>AdminAccessToUserAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAccessToUserDetails.resx">
+      <DependentUpon>AdminAccessToUserDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminAccessToUserTransaction.resx">
       <DependentUpon>AdminAccessToUserTransaction.cs</DependentUpon>

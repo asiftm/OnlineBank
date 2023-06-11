@@ -66,3 +66,4 @@ D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\O
 D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.pdb
 D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.AdminAccessToUserAccounts.resources
 D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.AdminAccessToUserTransaction.resources
+D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.AdminAccessToUserDetails.resources
