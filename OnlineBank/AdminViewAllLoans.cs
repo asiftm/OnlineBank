@@ -27,7 +27,7 @@ namespace OnlineBank
 
         private void AdminViewAllLoans_Load(object sender, EventArgs e)
         {
-            string query = $"SELECT loan.id,Status,user.Email,loantypes.Type,`Interest(%)`,loanAmount,repaymentAmount,`TotalInstallments(Year)`,AmountPaid,AmountRemaining,`RemainingInstallments(Year)` FROM bank.loan join loantypes on loan.loanTypeID = loantypes.ID join user on user.ID = loan.userID";
+            string query = $"SELECT loan.id,Status,user.Email,loantypes.Type,`Interest(%)`,loanAmount,repaymentAmount,`TotalInstallments(Year)`,AmountPaid,AmountRemaining,`RemainingInstallments(Year)`,`AccountNumber` FROM bank.loan join loantypes on loan.loanTypeID = loantypes.ID join user on user.ID = loan.userID";
             dataGridView1.DataSource = data.DataGrid(query);
         }
     }

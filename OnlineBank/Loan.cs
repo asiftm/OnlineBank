@@ -20,13 +20,14 @@ namespace OnlineBank
         public double AmountPaid { get; set;}//
         public double AmountRemaining { get; set; }//
         public int RemainingInstallments { get; set;}//
-        public string Status { get; set; }
+        public string Status { get; set; }//
+        public string AccountNumber { get; set; }//
 
         public Loan()
         {
             
         }
-        public Loan(int id, int loantypeId, int userId, double loanAmount, double repaymentAmount, int totalInstallments, double amountPaid, double amountRemaining, int remainingInstallments, string status)
+        public Loan(int id, int loantypeId, int userId, double loanAmount, double repaymentAmount, int totalInstallments, double amountPaid, double amountRemaining, int remainingInstallments, string status, string accountNumber)
         {
             ID = id;
             LoanTypeID = loantypeId;
@@ -37,6 +38,7 @@ namespace OnlineBank
             AmountRemaining = amountRemaining;
             RemainingInstallments = remainingInstallments;
             Status = status;
+            AccountNumber = accountNumber;
         }
         public bool CreateLoan(Loan loan)
         {
@@ -74,6 +76,17 @@ namespace OnlineBank
                 temp = true;
             }
             return temp;
+        }
+        public Loan GetLoanAccount(Loan loan)
+        {
+            string query = $"select * from `loan` where id='{loan.ID}'";
+            MySqlDataReader result = data.SelectQuery(query);
+            while (result.Read())
+            {
+                loan.AccountNumber = result[10].ToString();
+                loan.LoanAmount = Convert.ToDouble(result[3]);
+            }
+            return loan;
         }
     }
 }

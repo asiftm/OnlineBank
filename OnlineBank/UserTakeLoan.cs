@@ -122,10 +122,7 @@ namespace OnlineBank
 
                                 if (account.VerifyUserAccount(receiveAccount, user) && account.EnableStatusCheck(receiveAccount))
                                 {
-                                    double reveiverBalance = account.CheckBalance(receiveAccount);
-                                    reveiverBalance = reveiverBalance + loan.LoanAmount;
-
-                                    if (loan.CreateLoan(loan) && account.ChangeBalance(receiveAccount, reveiverBalance))
+                                    if (loan.CreateLoan(loan))
                                     {
                                         MessageBox.Show("Loan request is sent for approve.");
                                     }

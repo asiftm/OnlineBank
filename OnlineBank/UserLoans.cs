@@ -41,11 +41,11 @@ namespace OnlineBank
         {
             user = user.GetUser(LogInPage.uEmail);
 
-            string currentLoanQuery = $"SELECT `Type`, loanAmount as `Loan Amount`, repaymentAmount as `Repayment Amount`, `TotalInstallments(Year)` as `Total Installments(Year)`,`Interest(%)`, AmountPaid as `Amount Paid`, AmountRemaining as `Amount Remaining`, `RemainingInstallments(Year)` as `RemainingInstallments(Year)`  FROM bank.loan join loantypes on loan.loanTypeID = loantypes.id where (`RemainingInstallments(Year)` > 0) and (userID = {user.ID}) and (Status = \"Approved\");";
+            string currentLoanQuery = $"SELECT `Type`, loanAmount as `Loan Amount`, repaymentAmount as `Repayment Amount`, `TotalInstallments(Year)` as `Total Installments(Year)`,`Interest(%)`, AmountPaid as `Amount Paid`, AmountRemaining as `Amount Remaining`, `RemainingInstallments(Year)` as `RemainingInstallments(Year)`,AccountNumber  FROM bank.loan join loantypes on loan.loanTypeID = loantypes.id where (`RemainingInstallments(Year)` > 0) and (userID = {user.ID}) and (Status = \"Approved\");";
             dataGridView1.DataSource = data.DataGrid(currentLoanQuery);
-            string WaitingLoanQuery = $"SELECT `Type`, loanAmount as `Loan Amount`, repaymentAmount as `Repayment Amount`, `TotalInstallments(Year)` as `Total Installments(Year)`,`Interest(%)`, AmountPaid as `Amount Paid`, AmountRemaining as `Amount Remaining`, `RemainingInstallments(Year)` as `RemainingInstallments(Year)`  FROM bank.loan join loantypes on loan.loanTypeID = loantypes.id where (`RemainingInstallments(Year)` > 0) and (userID = {user.ID}) and (Status = \"NotApproved\");";
+            string WaitingLoanQuery = $"SELECT `Type`, loanAmount as `Loan Amount`, repaymentAmount as `Repayment Amount`, `TotalInstallments(Year)` as `Total Installments(Year)`,`Interest(%)`, AmountPaid as `Amount Paid`, AmountRemaining as `Amount Remaining`, `RemainingInstallments(Year)` as `RemainingInstallments(Year)`,AccountNumber  FROM bank.loan join loantypes on loan.loanTypeID = loantypes.id where (`RemainingInstallments(Year)` > 0) and (userID = {user.ID}) and (Status = \"NotApproved\");";
             dataGridView2.DataSource = data.DataGrid(WaitingLoanQuery);
-            string loanHistoryQuery = $"SELECT `Type`, loanAmount as `Loan Amount`, repaymentAmount as `Repayment Amount`, `TotalInstallments(Year)` as `Total Installments(Year)`,`Interest(%)`, AmountPaid as `Amount Paid`, AmountRemaining as `Amount Remaining`, `RemainingInstallments(Year)` as `RemainingInstallments(Year)`  FROM bank.loan join loantypes on loan.loanTypeID = loantypes.id where (`RemainingInstallments(Year)` = 0) and (userID = {user.ID}) and (Status = \"Approved\");";
+            string loanHistoryQuery = $"SELECT `Type`, loanAmount as `Loan Amount`, repaymentAmount as `Repayment Amount`, `TotalInstallments(Year)` as `Total Installments(Year)`,`Interest(%)`, AmountPaid as `Amount Paid`, AmountRemaining as `Amount Remaining`, `RemainingInstallments(Year)` as `RemainingInstallments(Year)`,AccountNumber  FROM bank.loan join loantypes on loan.loanTypeID = loantypes.id where (`RemainingInstallments(Year)` = 0) and (userID = {user.ID}) and (Status = \"Approved\");";
             dataGridView3.DataSource = data.DataGrid(loanHistoryQuery);
         }
 
@@ -82,6 +82,11 @@ namespace OnlineBank
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

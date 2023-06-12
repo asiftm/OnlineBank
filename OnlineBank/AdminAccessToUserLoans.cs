@@ -31,11 +31,11 @@ namespace OnlineBank
             label7.Text = $"UserID : {user.ID}";
             label5.Visible = false ;
 
-            string currentLoanQuery = $"SELECT loan.id , `Type`, loanAmount as `Loan Amount`, repaymentAmount as `Repayment Amount`, `TotalInstallments(Year)` as `Total Installments(Year)`,`Interest(%)`, AmountPaid as `Amount Paid`, AmountRemaining as `Amount Remaining`, `RemainingInstallments(Year)` as `RemainingInstallments(Year)`,Status  FROM bank.loan join loantypes on loan.loanTypeID = loantypes.id where (`RemainingInstallments(Year)` > 0) and (userID = {user.ID}) and (Status = \"Approved\");";
+            string currentLoanQuery = $"SELECT loan.id , `Type`, loanAmount as `Loan Amount`, repaymentAmount as `Repayment Amount`, `TotalInstallments(Year)` as `Total Installments(Year)`,`Interest(%)`, AmountPaid as `Amount Paid`, AmountRemaining as `Amount Remaining`, `RemainingInstallments(Year)` as `RemainingInstallments(Year)`,Status,AccountNumber FROM bank.loan join loantypes on loan.loanTypeID = loantypes.id where (`RemainingInstallments(Year)` > 0) and (userID = {user.ID}) and (Status = \"Approved\");";
             dataGridView1.DataSource = data.DataGrid(currentLoanQuery);
-            string WaitingLoanQuery = $"SELECT loan.id , `Type`, loanAmount as `Loan Amount`, repaymentAmount as `Repayment Amount`, `TotalInstallments(Year)` as `Total Installments(Year)`,`Interest(%)`, AmountPaid as `Amount Paid`, AmountRemaining as `Amount Remaining`, `RemainingInstallments(Year)` as `RemainingInstallments(Year)`,Status  FROM bank.loan join loantypes on loan.loanTypeID = loantypes.id where (`RemainingInstallments(Year)` > 0) and (userID = {user.ID}) and (Status = \"NotApproved\");";
+            string WaitingLoanQuery = $"SELECT loan.id , `Type`, loanAmount as `Loan Amount`, repaymentAmount as `Repayment Amount`, `TotalInstallments(Year)` as `Total Installments(Year)`,`Interest(%)`, AmountPaid as `Amount Paid`, AmountRemaining as `Amount Remaining`, `RemainingInstallments(Year)` as `RemainingInstallments(Year)`,Status,AccountNumber FROM bank.loan join loantypes on loan.loanTypeID = loantypes.id where (`RemainingInstallments(Year)` > 0) and (userID = {user.ID}) and (Status = \"NotApproved\");";
             dataGridView2.DataSource = data.DataGrid(WaitingLoanQuery);
-            string loanHistoryQuery = $"SELECT loan.id , `Type`, loanAmount as `Loan Amount`, repaymentAmount as `Repayment Amount`, `TotalInstallments(Year)` as `Total Installments(Year)`,`Interest(%)`, AmountPaid as `Amount Paid`, AmountRemaining as `Amount Remaining`, `RemainingInstallments(Year)` as `RemainingInstallments(Year)`,Status  FROM bank.loan join loantypes on loan.loanTypeID = loantypes.id where (`RemainingInstallments(Year)` = 0) and (userID = {user.ID}) and (Status = \"Approved\");";
+            string loanHistoryQuery = $"SELECT loan.id , `Type`, loanAmount as `Loan Amount`, repaymentAmount as `Repayment Amount`, `TotalInstallments(Year)` as `Total Installments(Year)`,`Interest(%)`, AmountPaid as `Amount Paid`, AmountRemaining as `Amount Remaining`, `RemainingInstallments(Year)` as `RemainingInstallments(Year)`,Status,AccountNumber FROM bank.loan join loantypes on loan.loanTypeID = loantypes.id where (`RemainingInstallments(Year)` = 0) and (userID = {user.ID}) and (Status = \"Approved\");";
             dataGridView3.DataSource = data.DataGrid(loanHistoryQuery);
         }
 
@@ -72,15 +72,24 @@ namespace OnlineBank
                     {
                         label5.Visible = false;
                         label5.Text = "Fill the loan id";
-
-                        if (loan.UpdateLoan(loan))
+                        loan = loan.GetLoanAccount(loan);
+                        double balance = account.CheckBalance(loan.AccountNumber);
+                        double newBalance = balance + loan.LoanAmount;
+                        if (account.EnableStatusCheck(loan.AccountNumber))
                         {
-                            MessageBox.Show("Loan Approved");
-                            AdminAccessToUserLoans adminAccessToUserLoans = new AdminAccessToUserLoans(user.ID);
-                            adminAccessToUserLoans.Show();
-                            this.Hide();
+                            if (loan.UpdateLoan(loan) && account.ChangeBalance(loan.AccountNumber, newBalance))
+                            {
+                                MessageBox.Show("Loan Approved");
+                                AdminAccessToUserLoans adminAccessToUserLoans = new AdminAccessToUserLoans(user.ID);
+                                adminAccessToUserLoans.Show();
+                                this.Hide();
+                            }
                         }
-
+                        else
+                        {
+                            label5.Visible = true;
+                            label5.Text = "Account disabled";
+                        }
                     }
                     else
                     {
