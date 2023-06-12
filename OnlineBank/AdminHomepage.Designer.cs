@@ -41,6 +41,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.editProfile = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -89,6 +92,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 164);
             this.dataGridView1.Name = "dataGridView1";
@@ -174,7 +178,7 @@
             // 
             this.editProfile.BackColor = System.Drawing.Color.ForestGreen;
             this.editProfile.ForeColor = System.Drawing.Color.White;
-            this.editProfile.Location = new System.Drawing.Point(408, 26);
+            this.editProfile.Location = new System.Drawing.Point(565, 14);
             this.editProfile.Margin = new System.Windows.Forms.Padding(4);
             this.editProfile.Name = "editProfile";
             this.editProfile.Size = new System.Drawing.Size(115, 41);
@@ -183,13 +187,46 @@
             this.editProfile.UseVisualStyleBackColor = false;
             this.editProfile.Click += new System.EventHandler(this.editProfile_Click);
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(573, 251);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(149, 39);
+            this.button6.TabIndex = 55;
+            this.button6.Text = "View All Account";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(573, 337);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(149, 39);
+            this.button7.TabIndex = 56;
+            this.button7.Text = "View All Transaction";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(573, 164);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(149, 39);
+            this.button8.TabIndex = 57;
+            this.button8.Text = "View All User";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // AdminHomepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(536, 629);
+            this.ClientSize = new System.Drawing.Size(734, 629);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.editProfile);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label3);
@@ -230,5 +267,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button editProfile;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
     }
 }

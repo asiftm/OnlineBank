@@ -130,5 +130,23 @@ namespace OnlineBank
             adminEditProfile.Show();
             this.Hide();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            AdminVIewAllUsers adminVIewAllUsers = new AdminVIewAllUsers();
+            adminVIewAllUsers.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            AdminVIewAllAccounts adminVIewAllAccounts = new AdminVIewAllAccounts();
+            adminVIewAllAccounts.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            AdminVIewAllTransaction adminVIewAllTransaction = new AdminVIewAllTransaction();
+            adminVIewAllTransaction.Show();
+        }
     }
 }

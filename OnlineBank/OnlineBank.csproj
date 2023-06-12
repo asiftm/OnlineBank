@@ -95,6 +95,24 @@
     <Compile Include="AdminEditProfile.Designer.cs">
       <DependentUpon>AdminEditProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminVIewAllAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminVIewAllAccounts.Designer.cs">
+      <DependentUpon>AdminVIewAllAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminVIewAllTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminVIewAllTransaction.Designer.cs">
+      <DependentUpon>AdminVIewAllTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminVIewAllUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminVIewAllUsers.Designer.cs">
+      <DependentUpon>AdminVIewAllUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +185,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminHomepage.resx">
       <DependentUpon>AdminHomepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminVIewAllAccounts.resx">
+      <DependentUpon>AdminVIewAllAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminVIewAllTransaction.resx">
+      <DependentUpon>AdminVIewAllTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminVIewAllUsers.resx">
+      <DependentUpon>AdminVIewAllUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateUser.resx">
       <DependentUpon>CreateUser.cs</DependentUpon>

@@ -26,11 +26,18 @@ namespace OnlineBank
 
         private void button6_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "png files(*.png)|*.png|jpg files(*.jpg)|*.jpg";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                pictureBox1.Image = Image.FromFile(openFileDialog.FileName);
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "png files(*.png)|*.png|jpg files(*.jpg)|*.jpg";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBox1.Image = Image.FromFile(openFileDialog.FileName);
+                }
+            }
+            catch 
+            {
+                MessageBox.Show("Try again or try another file!");
             }
         }
 
