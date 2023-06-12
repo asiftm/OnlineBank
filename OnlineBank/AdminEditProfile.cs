@@ -125,7 +125,6 @@ namespace OnlineBank
                 }
                 else
                 {
-
                     label5.Visible = true;
                 }
             }
@@ -134,6 +133,12 @@ namespace OnlineBank
                 label3.Visible = true;
                 label4.Visible = true;
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = null;
+            admin.Image = pictureBox1.Image;
         }
     }
 }

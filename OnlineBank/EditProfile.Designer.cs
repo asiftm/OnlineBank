@@ -48,6 +48,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +69,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Green;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(546, 478);
+            this.button1.Location = new System.Drawing.Point(518, 478);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(243, 28);
@@ -246,11 +247,11 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(682, 337);
+            this.button6.Location = new System.Drawing.Point(624, 339);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(93, 26);
+            this.button6.Size = new System.Drawing.Size(137, 26);
             this.button6.TabIndex = 37;
-            this.button6.Text = "Browse";
+            this.button6.Text = "Remove Photo";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -267,12 +268,23 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(668, 298);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(93, 26);
+            this.button4.TabIndex = 45;
+            this.button4.Text = "Browse";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // EditProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(841, 534);
+            this.ClientSize = new System.Drawing.Size(799, 534);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button3);
@@ -326,5 +338,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button4;
     }
 }

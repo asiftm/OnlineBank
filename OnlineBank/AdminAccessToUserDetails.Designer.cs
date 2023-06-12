@@ -54,6 +54,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +72,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(675, 361);
+            this.button6.Location = new System.Drawing.Point(661, 319);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(93, 26);
             this.button6.TabIndex = 63;
@@ -109,7 +110,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Green;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(541, 502);
+            this.button1.Location = new System.Drawing.Point(511, 502);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(243, 28);
@@ -331,11 +332,22 @@
             this.label7.TabIndex = 70;
             this.label7.Text = "User email already in use!";
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(617, 355);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(137, 26);
+            this.button4.TabIndex = 71;
+            this.button4.Text = "Remove Photo";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // AdminAccessToUserDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 576);
+            this.ClientSize = new System.Drawing.Size(774, 576);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -400,5 +412,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button4;
     }
 }

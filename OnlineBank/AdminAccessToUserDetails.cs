@@ -143,5 +143,11 @@ namespace OnlineBank
                 pictureBox1.Image = Image.FromFile(openFileDialog.FileName);
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = null;
+            user.Image = pictureBox1.Image;
+        }
     }
 }

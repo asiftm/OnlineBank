@@ -65,13 +65,20 @@ namespace OnlineBank
         {
             try
             {
-                MemoryStream memoryStream = new MemoryStream();
-                user.Image.Save(memoryStream, user.Image.RawFormat);
-                byte[] img = memoryStream.ToArray();
+                if (user.Image != null)
+                {
+                    MemoryStream memoryStream = new MemoryStream();
+                    user.Image.Save(memoryStream, user.Image.RawFormat);
+                    byte[] img = memoryStream.ToArray();
 
-                command = new MySqlCommand(query,connection);
-                command.Parameters.Add("@image",MySqlDbType.Blob).Value = img;
-            
+                    command = new MySqlCommand(query, connection);
+                    command.Parameters.Add("@image", MySqlDbType.Blob).Value = img;
+                }
+                else
+                {
+                    command = new MySqlCommand(query, connection);
+                    command.Parameters.Add("@image", MySqlDbType.Blob).Value = DBNull.Value;
+                }
                 OpenConnection();
                 int temp = command.ExecuteNonQuery();
                 connection.Close();
@@ -87,13 +94,21 @@ namespace OnlineBank
         {
             try
             {
-                MemoryStream memoryStream = new MemoryStream();
-                admin.Image.Save(memoryStream, admin.Image.RawFormat);
-                byte[] img = memoryStream.ToArray();
+                if (admin.Image != null)
+                {
+                    MemoryStream memoryStream = new MemoryStream();
+                    admin.Image.Save(memoryStream, admin.Image.RawFormat);
+                    byte[] img = memoryStream.ToArray();
 
-                command = new MySqlCommand(query,connection);
-                command.Parameters.Add("@image",MySqlDbType.Blob).Value = img;
-            
+                    command = new MySqlCommand(query, connection);
+                    command.Parameters.Add("@image", MySqlDbType.Blob).Value = img;
+                }
+                else
+                {
+                    command = new MySqlCommand(query, connection);
+                    command.Parameters.Add("@image", MySqlDbType.Blob).Value = DBNull.Value;
+                }
+
                 OpenConnection();
                 int temp = command.ExecuteNonQuery();
                 connection.Close();

@@ -161,5 +161,12 @@ namespace OnlineBank
         {
 
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            AdminEditProfile adminEditProfile = new AdminEditProfile();
+            adminEditProfile.Show();
+            this.Hide();
+        }
     }
 }

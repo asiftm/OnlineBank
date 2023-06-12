@@ -145,6 +145,18 @@ namespace OnlineBank
 
         private void button6_Click(object sender, EventArgs e)
         {
+            pictureBox1.Image = null;
+            user.Image = pictureBox1.Image;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
             try
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -159,12 +171,6 @@ namespace OnlineBank
             {
                 MessageBox.Show("Try again or try another file!");
             }
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

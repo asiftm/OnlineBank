@@ -97,6 +97,7 @@
             this.label5.Size = new System.Drawing.Size(94, 17);
             this.label5.TabIndex = 45;
             this.label5.Text = "Upload Photo";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // dataGridView1
             // 

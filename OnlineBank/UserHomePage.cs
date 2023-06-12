@@ -137,5 +137,12 @@ namespace OnlineBank
         {
             Application.Exit();
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            EditProfile editProfile = new EditProfile();
+            editProfile.Show();
+            this.Hide();
+        }
     }
 }
