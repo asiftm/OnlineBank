@@ -37,6 +37,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -103,9 +104,9 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Peru;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(860, 241);
+            this.button1.Location = new System.Drawing.Point(814, 512);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 75);
+            this.button1.Size = new System.Drawing.Size(145, 75);
             this.button1.TabIndex = 5;
             this.button1.Text = "Take Loan";
             this.button1.UseVisualStyleBackColor = false;
@@ -115,9 +116,9 @@
             // 
             this.button4.BackColor = System.Drawing.Color.DarkGreen;
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(860, 353);
+            this.button4.Location = new System.Drawing.Point(814, 620);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 75);
+            this.button4.Size = new System.Drawing.Size(145, 75);
             this.button4.TabIndex = 8;
             this.button4.Text = "Back To Home";
             this.button4.UseVisualStyleBackColor = false;
@@ -146,12 +147,24 @@
             this.label4.Text = "Loan History : ";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Peru;
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(814, 405);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(145, 75);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Take Loan";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // UserLoans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(971, 736);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button4);
@@ -184,5 +197,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button2;
     }
 }
