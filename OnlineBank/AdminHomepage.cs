@@ -40,6 +40,9 @@ namespace OnlineBank
             dataGridView1.DataSource = admin.AllUsers();
             label3.Visible = false;
 
+            label10.Text = admin.Count("SELECT count(*) FROM bank.user");
+            label8.Text = admin.Count("SELECT count(*) FROM bank.accounts");
+            label9.Text = admin.Count("SELECT count(*) FROM bank.transaction");
 
         }
 
@@ -147,6 +150,16 @@ namespace OnlineBank
         {
             AdminVIewAllTransaction adminVIewAllTransaction = new AdminVIewAllTransaction();
             adminVIewAllTransaction.Show();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

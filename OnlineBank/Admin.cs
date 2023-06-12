@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace OnlineBank
 {
@@ -113,6 +114,16 @@ namespace OnlineBank
                 temp = true;
             }
             return temp;
+        }
+        public string Count(string query)
+        {
+            string count = string.Empty;
+            MySqlDataReader result = data.SelectQuery(query);
+            while (result.Read())
+            {
+                count = result[0].ToString();
+            }
+            return count;
         }
     }
 }

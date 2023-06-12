@@ -26,6 +26,7 @@ namespace OnlineBank
         {
             label2.Text = $"UserID : {user.ID}";
             label3.Visible = false;
+            label5.Text = admin.Count($"select count(*) from accounts where UserID = {user.ID}");
             dataGridView1.DataSource = account.GetAccounts(user);
 
         }
