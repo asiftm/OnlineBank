@@ -62,7 +62,6 @@ namespace OnlineBank
         {
             bool temp = false;
             string query = $"select * from user where Email='{user.Email}' and Password='{user.Password}'";
-            Console.WriteLine(query);
             MySqlDataReader result = data.SelectQuery(query);
             while (result.Read())
             {
@@ -132,7 +131,8 @@ namespace OnlineBank
                 }
             }
             return user;
-        }public User GetUserByID(int id)
+        }
+        public User GetUserByID(int id)
         {
             User user = new User();
             string query = $"select * from `user` where id='{id}'";

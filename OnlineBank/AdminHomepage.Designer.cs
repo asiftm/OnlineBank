@@ -52,6 +52,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -122,9 +124,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(15, 551);
+            this.button2.Location = new System.Drawing.Point(12, 547);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 39);
+            this.button2.Size = new System.Drawing.Size(101, 60);
             this.button2.TabIndex = 48;
             this.button2.Text = "Edit User Details";
             this.button2.UseVisualStyleBackColor = true;
@@ -142,9 +144,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(167, 551);
+            this.button3.Location = new System.Drawing.Point(264, 547);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(158, 39);
+            this.button3.Size = new System.Drawing.Size(101, 60);
             this.button3.TabIndex = 50;
             this.button3.Text = "Transacton History";
             this.button3.UseVisualStyleBackColor = true;
@@ -152,9 +154,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(357, 551);
+            this.button4.Location = new System.Drawing.Point(142, 547);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(149, 39);
+            this.button4.Size = new System.Drawing.Size(101, 60);
             this.button4.TabIndex = 51;
             this.button4.Text = "Manage Accounts";
             this.button4.UseVisualStyleBackColor = true;
@@ -308,6 +310,26 @@
             this.label12.TabIndex = 65;
             this.label12.Text = "Online Bank";
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(393, 547);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(101, 60);
+            this.button9.TabIndex = 66;
+            this.button9.Text = "Manage Loans";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(622, 516);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(149, 39);
+            this.button10.TabIndex = 67;
+            this.button10.Text = "View All Loans";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // AdminHomepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -315,6 +337,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(881, 672);
+            this.Controls.Add(this.button10);
+            this.Controls.Add(this.button9);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label8);
@@ -377,5 +401,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
     }
 }

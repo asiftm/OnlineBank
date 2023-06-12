@@ -10,18 +10,12 @@ using System.Windows.Forms;
 
 namespace OnlineBank
 {
-    public partial class AdminVIewAllTransaction : Form
+    public partial class AdminViewAllLoans : Form
     {
         Data data = new Data();
-        public AdminVIewAllTransaction()
+        public AdminViewAllLoans()
         {
             InitializeComponent();
-        }
-
-        private void AdminVIewAllTransaction_Load(object sender, EventArgs e)
-        {
-            string query = $"SELECT id as `TransactionID`, sender as Sender, receiver as Receiver,amount as Amount FROM transaction";
-            dataGridView1.DataSource = data.DataGrid(query);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -29,6 +23,12 @@ namespace OnlineBank
             AdminHomepage adminHomepage = new AdminHomepage();
             adminHomepage.Show();
             this.Hide();
+        }
+
+        private void AdminViewAllLoans_Load(object sender, EventArgs e)
+        {
+            string query = $"SELECT loan.id,Status,user.Email,loantypes.Type,`Interest(%)`,loanAmount,repaymentAmount,`TotalInstallments(Year)`,AmountPaid,AmountRemaining,`RemainingInstallments(Year)` FROM bank.loan join loantypes on loan.loanTypeID = loantypes.ID join user on user.ID = loan.userID";
+            dataGridView1.DataSource = data.DataGrid(query);
         }
     }
 }

@@ -69,5 +69,10 @@ namespace OnlineBank
                 label3.Visible = true;
             }
         }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -144,5 +144,12 @@ namespace OnlineBank
             editProfile.Show();
             this.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            UserLoans userLoans = new UserLoans();
+            userLoans.Show();
+            this.Hide();
+        }
     }
 }

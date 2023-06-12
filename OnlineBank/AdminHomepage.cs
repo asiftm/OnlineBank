@@ -138,18 +138,21 @@ namespace OnlineBank
         {
             AdminVIewAllUsers adminVIewAllUsers = new AdminVIewAllUsers();
             adminVIewAllUsers.Show();
+            this.Hide();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             AdminVIewAllAccounts adminVIewAllAccounts = new AdminVIewAllAccounts();
             adminVIewAllAccounts.Show();
+            this.Hide();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             AdminVIewAllTransaction adminVIewAllTransaction = new AdminVIewAllTransaction();
             adminVIewAllTransaction.Show();
+            this.Hide();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -166,6 +169,37 @@ namespace OnlineBank
         {
             AdminEditProfile adminEditProfile = new AdminEditProfile();
             adminEditProfile.Show();
+            this.Hide();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text != string.Empty)
+            {
+                label3.Visible = false;
+                try
+                {
+                    int id = Convert.ToInt16(textBox1.Text.Trim());
+
+                    AdminAccessToUserLoans adminAccessToUserLoans = new AdminAccessToUserLoans(id);
+                    adminAccessToUserLoans.Show();
+                    this.Hide();
+                }
+                catch
+                {
+                    MessageBox.Show("Insert correct id");
+                }
+            }
+            else
+            {
+                label3.Visible = true;
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            AdminViewAllLoans adminViewAllLoans = new AdminViewAllLoans();
+            adminViewAllLoans.Show();
             this.Hide();
         }
     }

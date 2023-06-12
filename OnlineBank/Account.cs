@@ -121,7 +121,7 @@ namespace OnlineBank
         public bool ChangeBalance(string account, double amount)
         {
             bool temp = false;
-            string query = $"UPDATE `accounts` SET `Balance` = '{amount}' WHERE `accounts`.`AccountNumber` = '{account}';";
+            string query = $"UPDATE `accounts` SET `Balance` = '{(amount).ToString().Replace(",",".")}' WHERE `accounts`.`AccountNumber` = '{account}';";
             if (data.NonSelectQuery(query) == 1)
             {
                 temp = true;

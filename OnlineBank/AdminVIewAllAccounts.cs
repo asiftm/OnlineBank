@@ -26,6 +26,8 @@ namespace OnlineBank
 
         private void button1_Click(object sender, EventArgs e)
         {
+            AdminHomepage adminHomepage = new AdminHomepage();
+            adminHomepage.Show();
             this.Hide();
         }
     }

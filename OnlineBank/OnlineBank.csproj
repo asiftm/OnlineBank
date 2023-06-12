@@ -83,6 +83,12 @@
     <Compile Include="AdminAccessToUserDetails.Designer.cs">
       <DependentUpon>AdminAccessToUserDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminAccessToUserLoans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAccessToUserLoans.Designer.cs">
+      <DependentUpon>AdminAccessToUserLoans.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminAccessToUserTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,12 @@
     </Compile>
     <Compile Include="AdminVIewAllAccounts.Designer.cs">
       <DependentUpon>AdminVIewAllAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminViewAllLoans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminViewAllLoans.Designer.cs">
+      <DependentUpon>AdminViewAllLoans.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminVIewAllTransaction.cs">
       <SubType>Form</SubType>
@@ -144,6 +156,14 @@
     <Compile Include="ChangeAccountStatus.Designer.cs">
       <DependentUpon>ChangeAccountStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Loan.cs" />
+    <Compile Include="LoanType.cs" />
+    <Compile Include="UserLoans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserLoans.Designer.cs">
+      <DependentUpon>UserLoans.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -171,11 +191,20 @@
     <Compile Include="UserHomePage.Designer.cs">
       <DependentUpon>UserHomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserTakeLoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserTakeLoan.Designer.cs">
+      <DependentUpon>UserTakeLoan.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminAccessToUserAccounts.resx">
       <DependentUpon>AdminAccessToUserAccounts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminAccessToUserDetails.resx">
       <DependentUpon>AdminAccessToUserDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAccessToUserLoans.resx">
+      <DependentUpon>AdminAccessToUserLoans.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminAccessToUserTransaction.resx">
       <DependentUpon>AdminAccessToUserTransaction.cs</DependentUpon>
@@ -188,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminVIewAllAccounts.resx">
       <DependentUpon>AdminVIewAllAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminViewAllLoans.resx">
+      <DependentUpon>AdminViewAllLoans.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminVIewAllTransaction.resx">
       <DependentUpon>AdminVIewAllTransaction.cs</DependentUpon>
@@ -220,6 +252,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserHomePage.resx">
       <DependentUpon>UserHomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserLoans.resx">
+      <DependentUpon>UserLoans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserTakeLoan.resx">
+      <DependentUpon>UserTakeLoan.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
