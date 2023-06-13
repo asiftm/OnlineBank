@@ -50,3 +50,6 @@ This application uses a MySQL database for storing and managing data. Follow the
 6. User details modification including profile picture.
 
 7. Admin access.
+
+### Screenshots
+![Screenshot 1](Screenshots\Screenshot 2023-06-13 041026.png)
