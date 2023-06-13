@@ -52,4 +52,6 @@ This application uses a MySQL database for storing and managing data. Follow the
 7. Admin access.
 
 ### Screenshots
-![Screenshot 1]([Screenshots\Screenshot 2023-06-13 041026.png](https://github.com/asiftm/OnlineBank/blob/main/Screenshots/Screenshot%202023-06-13%20041026.png))
+![](Screenshots/Screenshot%202023-06-13%20041026.png)
+![](Screenshots/Screenshot%202023-06-13%20041041.png)
+![](Screenshots/Screenshot%202023-06-13%20041115.png)
