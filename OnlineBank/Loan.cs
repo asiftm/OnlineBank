@@ -44,7 +44,7 @@ namespace OnlineBank
         {
             bool temp = false;
 
-            string query = $"INSERT INTO `bank`.`loan` (`loanTypeID`, `userID`, `loanAmount`, `repaymentAmount`, `TotalInstallments(Year)`, `AmountPaid`, `AmountRemaining`, `RemainingInstallments(Year)`, `Status`) VALUES ('{loan.LoanTypeID}', '{loan.UserID}', '{loan.LoanAmount}', '{loan.RepaymentAmount}', '{loan.TotalInstallments}', '{loan.AmountPaid}', '{loan.AmountRemaining}', '{loan.RemainingInstallments}', '{loan.Status}');";
+            string query = $"INSERT INTO `bank`.`loan` (`loanTypeID`, `userID`, `loanAmount`, `repaymentAmount`, `TotalInstallments(Year)`, `AmountPaid`, `AmountRemaining`, `RemainingInstallments(Year)`, `Status` , `AccountNumber`) VALUES ('{loan.LoanTypeID}', '{loan.UserID}', '{loan.LoanAmount.ToString().Replace(",",".")}', '{loan.RepaymentAmount.ToString().Replace(",", ".")}', '{loan.TotalInstallments}', '{loan.AmountPaid}', '{loan.AmountRemaining.ToString().Replace(",", ".")}', '{loan.RemainingInstallments}', '{loan.Status}','{loan.AccountNumber}');";
             if(data.NonSelectQuery(query)==1)
             {
                 temp=true;
@@ -83,10 +83,79 @@ namespace OnlineBank
             MySqlDataReader result = data.SelectQuery(query);
             while (result.Read())
             {
-                loan.AccountNumber = result[10].ToString();
+                loan.ID = Convert.ToInt32(result[0]);
+                loan.LoanTypeID = Convert.ToInt32(result[1]);
+                loan.UserID = Convert.ToInt32(result[2]);
                 loan.LoanAmount = Convert.ToDouble(result[3]);
+                loan.RepaymentAmount = Convert.ToDouble(result[4]);
+                loan.TotalInstallments = Convert.ToInt32(result[5]);
+                loan.AmountPaid = Convert.ToDouble(result[6]);
+                loan.AmountRemaining = Convert.ToDouble(result[7]);
+                loan.RemainingInstallments = Convert.ToInt32(result[8]);
+                loan.Status = result[9].ToString();
+                loan.AccountNumber = result[10].ToString();
             }
             return loan;
+        }
+        public Loan GetRemainingInstallmentLoanAccount(Loan loan)
+        {
+            string query = $"select * from `loan` where id='{loan.ID}' and `RemainingInstallments(Year)`>0";
+            MySqlDataReader result = data.SelectQuery(query);
+            while (result.Read())
+            {
+                loan.ID = Convert.ToInt32(result[0]);
+                loan.LoanTypeID = Convert.ToInt32(result[1]);
+                loan.UserID = Convert.ToInt32(result[2]);
+                loan.LoanAmount = Convert.ToDouble(result[3]);
+                loan.RepaymentAmount = Convert.ToDouble(result[4]);
+                loan.TotalInstallments = Convert.ToInt32(result[5]);
+                loan.AmountPaid = Convert.ToDouble(result[6]);
+                loan.AmountRemaining = Convert.ToDouble(result[7]);
+                loan.RemainingInstallments = Convert.ToInt32(result[8]);
+                loan.Status = result[9].ToString();
+                loan.AccountNumber = result[10].ToString();
+            }
+            return loan;
+        }
+        public bool CheckUserLoan(Loan loan,User user)
+        {
+            bool temp = false;
+            string query = $"SELECT * FROM bank.loan where id = {loan.ID} and userID = {user.ID}";
+            MySqlDataReader result = data.SelectQuery(query);
+            while (result.Read())
+            {
+                if (result.HasRows)
+                {
+                    temp = true;
+                }
+            }
+            return temp;
+        }
+        public bool CheckRemainingInstallmentLoanAccount(Loan loan,User user)
+        {
+            bool temp = false;
+            string query = $"SELECT * FROM bank.loan where id = {loan.ID} and userID = {user.ID} and `RemainingInstallments(Year)`>0" ;
+            MySqlDataReader result = data.SelectQuery(query);
+            while (result.Read())
+            {
+                if (result.HasRows)
+                {
+                    temp = true;
+                }
+            }
+            return temp;
+        }
+        public bool UpdateAfterInstallment(Loan loan,double thisInstallment)
+        {
+            bool temp = false;
+
+            string query = $"UPDATE `bank`.`loan` SET `AmountPaid` = '{AmountPaid+thisInstallment.ToString().Replace(",",".")}', `AmountRemaining` = '{(loan.AmountRemaining-thisInstallment).ToString().Replace(",", ".")}', `RemainingInstallments(Year)` = '{loan.RemainingInstallments-1}' WHERE (`id` = '{loan.ID}');";
+
+            if (data.NonSelectQuery(query) == 1)
+            {
+                temp = true;
+            }
+            return temp;
         }
     }
 }

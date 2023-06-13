@@ -75,3 +75,4 @@ D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\O
 D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.csproj.CopyComplete
 D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.exe
 D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.pdb
+D:\DSPS\semester2\InspirationLab\Semester2-InspirationLab\OnlineBank\obj\Debug\OnlineBank.UserPayInstallment.resources

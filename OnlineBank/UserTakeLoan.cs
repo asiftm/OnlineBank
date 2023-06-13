@@ -119,7 +119,7 @@ namespace OnlineBank
 
                                 textBox5.Text = loan.RepaymentAmount.ToString();
                                 string receiveAccount = textBox4.Text;
-
+                                loan.AccountNumber = receiveAccount;
                                 if (account.VerifyUserAccount(receiveAccount, user) && account.EnableStatusCheck(receiveAccount))
                                 {
                                     if (loan.CreateLoan(loan))

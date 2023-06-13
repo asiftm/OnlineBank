@@ -191,6 +191,12 @@
     <Compile Include="UserHomePage.Designer.cs">
       <DependentUpon>UserHomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserPayInstallment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserPayInstallment.Designer.cs">
+      <DependentUpon>UserPayInstallment.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserTakeLoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserLoans.resx">
       <DependentUpon>UserLoans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserPayInstallment.resx">
+      <DependentUpon>UserPayInstallment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserTakeLoan.resx">
       <DependentUpon>UserTakeLoan.cs</DependentUpon>

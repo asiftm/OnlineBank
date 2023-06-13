@@ -90,5 +90,12 @@ namespace OnlineBank
         {
 
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            UserPayInstallment userPayInstallment = new UserPayInstallment();
+            userPayInstallment.Show();
+            this.Hide();
+        }
     }
 }

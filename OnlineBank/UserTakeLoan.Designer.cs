@@ -57,6 +57,7 @@ namespace OnlineBank
             this.label11 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -79,7 +80,7 @@ namespace OnlineBank
             // 
             this.button1.BackColor = System.Drawing.Color.DarkGreen;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(913, 581);
+            this.button1.Location = new System.Drawing.Point(914, 581);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(152, 45);
             this.button1.TabIndex = 1;
@@ -116,7 +117,7 @@ namespace OnlineBank
             this.dataGridView2.BackgroundColor = System.Drawing.Color.PowderBlue;
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(710, 79);
+            this.dataGridView2.Location = new System.Drawing.Point(711, 79);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
@@ -325,6 +326,14 @@ namespace OnlineBank
             this.label12.TabIndex = 32;
             this.label12.Text = "*Fill loan number, amount and installments";
             // 
+            // textBox7
+            // 
+            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.Location = new System.Drawing.Point(143, 309);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(93, 28);
+            this.textBox7.TabIndex = 21;
+            // 
             // UserTakeLoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -342,6 +351,7 @@ namespace OnlineBank
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -401,5 +411,6 @@ namespace OnlineBank
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox7;
     }
 }
