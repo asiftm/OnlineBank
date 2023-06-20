@@ -1,6 +1,6 @@
 # Online Bank
 
-This is a Windows Form application that allows users to manage basic banking system. It provides features for creating user profile, managing accounts, and requesting for loans. Users can add transactions, apply for loan, and view their banking information in a user-friendly interface. The application also supports admin access system to monitor the banking system from the application.
+This is a windows form application that allows users to manage basic banking system. It provides features for creating user profile, managing accounts, and requesting for loans. Users can add transactions, apply for loan, and view their banking information in a user-friendly interface. The application also supports admin access system to monitor the banking system from the application.
 
 ## Getting Started
 
