@@ -44,6 +44,7 @@ namespace OnlineBank
             {
                 user.Email = userEmail.Text;
                 user.Password = Password.Text;
+
                 if (user.VerifyUser(user)==true)
                 {
                     uEmail = userEmail.Text;

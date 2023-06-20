@@ -90,7 +90,8 @@ namespace OnlineBank
                 MessageBox.Show("An error occured!\nPlease try again.");
             }
             return 0;
-        }public int InsertAdminImage(Admin admin, string query)
+        }
+        public int InsertAdminImage(Admin admin, string query)
         {
             try
             {
